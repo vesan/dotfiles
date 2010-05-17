@@ -1,0 +1,500 @@
+mate .
+irb19
+git st
+git commit -a
+git push
+bin/httparty -h
+bin/httparty -a post -d @jorma.json "localhost:3000"
+rake features
+svn st
+svn diff | mate
+svn commit
+svn st
+cap deploy
+exit
+cd code/idealist/
+ls
+mkdir website
+cd website
+git clone git://github.com/railsmachine/moonshine_wordpress.git
+mate moonshine_wordpress
+wget http://wordpress.org/latest.tar.gz
+curl -o http://wordpress.org/latest.tar.gz
+curl -o latest.tar.gz http://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz -C /srv
+tar xzf latest.tar.gz -C srv
+mkdir srv
+tar xzf latest.tar.gz -C srv
+ls srv
+mate .
+mkdir public
+mv srv/wordpress/* public
+rm -r srv
+capify
+capify .
+ls
+mkdir config
+capify .
+ls
+mate .
+rm -rf moonshine_wordpress
+ls
+rm latest.tar.gz
+ls
+rm latest.tar.gz
+ös
+ls
+cat Capfile
+git init
+git add .
+git commit -m "Initial import."
+ssh shell.nullcore.fi
+ssh shell.nullcore.fi
+sudo gem install fast_xs
+cd code/ravensnest
+cap deploy:restart
+cap deploy:restart
+cap deploy:stop
+cap deploy:start
+ssh vps289.zoner.fi
+ssh wreckamovie.com
+cap deploy:start
+cd code/ravensnest
+r
+clear
+cd "/Users/vesan/code/ravensnest"
+ss
+cd "/Users/vesan/code/ravensnest"
+sc
+cd "/Users/vesan/code/ravensnest"
+cd "/Users/vesan/code/ravensnest"
+autospec
+svn st
+svn commit
+cap production init:facebooker_yml
+rake gems
+cap production web:disable
+cap production deploy:migrations
+cap production deploy
+cap production deploy:migrations
+cap production deploy:migrate
+cap production deploy:restart
+cap production web:enable
+svn st
+svn commit -m "Enable Facebook Connect for production environment"
+cap production deploy
+svn st
+svn commit -m "Bugfix: Don't try to ask about facebook from removed users."
+cap production deploy
+ssh wreckamovie.com
+cd code/ravensnest
+mate vendor
+svn log --limit 30
+svn up
+svn log --limit 30
+clear
+exit
+ssh shell.nullcore.fi
+ping http://quatloo.dev.scred.com:8080
+ping http://quatloo.dev.scred.com
+ping quatloo.dev.scred.com
+ping quatloo.dev.scred.com:8080
+ping quatloo.dev.scred.com
+exit
+exit
+exit
+ping google.fi
+ping google.fi
+ping google.fi
+ssh shell.nullcore.fi
+ssh shell.nullcore.fi
+irb
+exit
+svn st
+svn diff
+ss
+autospec
+svn st
+svn st
+svn diff
+svn commit -m "Add facebook user percent to admin statistics"
+rake gems
+ls vendor/gems
+ls vendor/plugins
+svn commit -m "We don't really need metric_fu in staging and production"
+svn diff | mate
+svn commit
+svn st
+svn diff
+svn commit -m "Bugfix: Don't say users sex is female when it's nil"
+cap deploy
+svn st
+svn commit -m "Fix production urls."
+ssh wreckamovie.com
+svn st
+cap deploy
+cap production deploy
+sudo gem install heroku
+bc
+join
+paste
+bc 100*10
+bc
+ssh shell.nullcore.fi
+irb
+irb
+mate snakey
+./snakey
+chmod u+x snakey
+./snakey
+./snakey
+./snakey 10
+./snakey 2
+./snakey 10 100
+exit
+ping idealist.fi
+cd ../idealist/website
+git diff | mate
+mate .
+ssh vps302.zoner.fi
+ssh -l root vps302.zoner.fi
+ssh vps302.zoner.fi
+ssh vps302.zoner.fi
+ssh -l app vps302.zoner.fi
+su app
+cd .ssh
+ls
+mate id_rsa.pub
+ssh -l app vps302.zoner.fi
+ls -la
+cd ..
+ls -la
+cd .ssh
+ls -la
+ssh -l app vps302.zoner.fi
+ssh -l app vps302.zoner.fi
+ssh -l app vps302.zoner.fi
+ssh -l root vps302.zoner.fi
+ssh -l app vps302.zoner.fi
+ssh vps302.zoner.fi
+ssh -l app vps302.zoner.fi
+ssh vps302.zoner.fi
+cd ../code/idealist/website
+git st
+ssh vps302.zoner.fi
+ssh vps302.zoner.fi
+ssh vps302.zoner.fi
+ssh vps302.zoner.fi
+cat /etc/mysql/debian.cnf
+ssh vps302.zoner.fi
+git st
+git add config/templates
+git st
+git commit -a -m "Added config templates and tuned deploy script"
+ssh -l app vps302.zoner.fi
+cap -T
+cap -T
+cap deploy:setup
+cap deploy:setup
+cap wordpress:config
+cap wordpress:config
+cap -T | grep check
+deploy:check # Test deployment dependencies.
+cap deploy:check
+cap wordpress:config
+cap wordpress:config
+cap wordpress:config
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+sftp
+ls
+sftp app@vps302.zoner.fi:/tmp Capfile
+sftp app@vps302.zoner.fi
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+cap deploy:cold
+cap deploy
+cap deploy
+vim .htpasswd
+vim .htaccess
+git st
+git diff
+git st
+git add .htaccess .htpasswd
+git commit -m "Added htaccess password protection"
+git add config/deploy.rb
+git commit -m "Tuning deploy.rb"
+git st
+rm .htpasswd\~
+cap deploy
+ssh vps302.zoner.fi
+cap deploy
+git st
+git commit -a -m "Fixed path in htaccess"
+cap deploy
+cd public/wp-content
+ls
+cd themes
+ls
+cp default/* idealist
+cp default/* idealist/
+cp -r default/* idealist/
+cd code/idealist
+ls
+ls website
+vim /etc/apache2/httpd.conf
+sudo apachectl restart
+cd Sites
+ls
+pwd
+ln -s /Users/vesan/code/idealist/website/public ./idealist
+ls -la
+sudo apachectl restart
+cd /etc/
+ls
+ls -la | grep http
+cd apache2
+ls -la
+cd users
+ls -la
+cat vesan.conf
+ls -la
+cd idealist
+ls
+cd ..
+ls -la
+cd ..
+cd /var/log
+ls
+cd apache2
+ls
+tail -f error_log
+cd users
+vim vesan.conf
+sudo apachectl restart
+exit
+cd ..
+cd ..
+ls -la
+git st
+cd ..
+git st
+git diff
+git commit -m "Added comment to deploy.rb"
+git commit -a -m "Added comment to deploy.rb"
+mate .gitignore
+git st
+git add .gitignore
+git commit -m "Added wp-config.php to .gitignore"
+git add public/wp-content/themes/idealist
+git commit -m "Added idealist-theme"
+git st
+ls
+tail -f access_log
+ssh shell.nullcore.fi
+ss
+sc
+autospec
+svn up
+git st
+git add public/wp-content/themes/idealist/landing.php
+git commit -a -m "Started crafting the idealist theme"
+cap deploy
+sc
+cd lib/scred
+ls
+curl -v -X POST -H "Content-Type: application/json" -d @invoice.json "http://quatloo.dev.scred.com:8888/wam/api/invoices/"
+cd code/ravensnest/lib/scred
+ls -la
+mate invoice.json
+curl -v -X POST -H "Content-Type: application/json" -d @invoice.json "http://quatloo.dev.scred.com:8888/wam/api/invoices"
+curl -v -X POST -H "Content-Type: application/json" -d '{"issue_date": "2009-08-17", "due_date": "2009-08-27", "seller": "seller@entity.scred.com", "buyer": "buyer@entity.scred.com"}' "http://quatloo.dev.scred.com:8888/wam/api/invoices"
+curl -v -H "Content-Type: application/json" -d '{"issue_date": "2009-08-17", "due_date": "2009-08-27", "seller": "seller@entity.scred.com", "buyer": "buyer@entity.scred.com"}' "http://quatloo.dev.scred.com:8888/wam/api/invoices"
+curl -v -H "Content-Type: application/json" -d '{"issue_date": "2009-08-17", "due_date": "2009-08-27", "seller": "seller@entity.scred.com", "buyer": "buyer@entity.scred.com"}' "http://quatloo.dev.scred.com:8888/wam/api/invoices/"
+ping 213.157.69.183
+svn st
+cd ..
+cd ..
+svn st
+svn add app/views/funding_products/buy.html.erb
+svn commit -m "Finetuning production store. Added buy page."
+cap deploy
+svn st
+svn add app/views/admin/_productions.html.erb app/views/admin/edit_production.html.erb app/views/admin/_users.html.erb app/views/admin/list_productions.html.erb
+svn st
+svn rm app/views/admin/_table.html.erb
+svn commit -m "Added production listing and super simple editing to admin area"
+cap deploy
+svn commit -m "Admin production editing: add label"
+cap deploy
+script/generate migration AddPaypalUrlToProductions
+rake db:migrate
+rake db:test:prepare
+svn st
+svn add db/migrate/20090901105221_add_paypal_email_to_productions.rb
+svn commit -m "Added paypal email to productions"
+cap deploy
+git st
+git st
+ls public
+ls -la public
+ssh idealist.fi
+cd ..
+ls -la
+cd website
+ls -la
+git mv .htaccess public/
+git mv .htpasswd public/
+ls -la
+git st
+git mv public/.htpasswd .
+ls -la
+cd /etc/apache2
+ls
+cat httpd.conf
+cd ~/Sites
+ls
+ls -la
+cd idealist
+ls -la
+cd /etc/apache2
+ls
+ls other
+cat other/php5.conf
+cat users/vesan.conf
+mate users/vesan.conf
+sudo /usr/sbin/apachectl restart
+cd /var/log
+ls
+cd apache2
+ls
+tail -f error_log
+git mv .htpasswd public/
+sudo apachectl configtest
+sudo apachectl restart
+mate users/vesan.conf
+sudo apachectl restart
+sudo apachectl restart
+ls
+cat httpd.conf
+git mv public/.htpasswd .
+pwd
+ls
+ls -la
+git st
+git mv public/.htaccess config/.htaccess
+mate .gitignore
+git st
+git commit -a
+cap deploy
+ssh idealist.fi
+git st
+ls -kla
+git mv config/.htaccess config/server_htaccess
+git commit -m "Fix filename"
+cap deploy
+git st
+git add config/deploy.rb
+git commit -m "Remove cruft from deploy.rb"
+git commit -a -m "Theme: Remove feed links"
+cap deploy
+git st
+git st
+exit
+exit
+exit
+exit
+ssh shell.nullcore.fi
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+ssh shell.nullcore.fi
+cd code/idealist/website
+ls
+git st
+git diff
+git st
+git add public/wp-content/themes/idealist/page.php
+git commit -m "Don't show header on the Home page"
+git commit -a -m "No footer on landing page and Enter Site-link is underlined"
+cap deploy
+git st
+git commit -a
+git st
+cap deploy
+git st
+git commit -a -m "Header links to Home-page"
+cap deploy
+ssh idealist.fi
+git st
+git diff
+git commit -a
+tail -f /var/log/apache2
+ls /var/log/apache2
+tail -f var/log/apache2/access_log
+sudo tail -f var/log/apache2/access_log
+sudo tail -f var/log/apache2/error_log
+sudo tail -f /var/log/apache2/access_log
+sudo tail -f /var/log/apache2/error_log
+ls /etc/apache2
+ls /etc/apache2
+apachectl
+apachectl -M
+apachectl -M | grep alias
+git st
+git add config/server_htaccess
+git commit -m "Tuning htaccess for news and hall of envy"
+git commit -a -m "Tuning archive page looks"
+cap deploy
+git st
+tail -f var/log/apache2/access_log
+tail -f /var/log/apache2/access_log
+git st
+git rm public/wp-content/themes/idealist/images/audio.jpg public/wp-content/themes/idealist/images/header-img.php public/wp-content/themes/idealist/images/kubrickbg-ltr.jpg public/wp-content/themes/idealist/images/kubrickbg-rtl.jpg public/wp-content/themes/idealist/images/kubrickbgcolor.jpg public/wp-content/themes/idealist/images/kubrickbgwide.jpg public/wp-content/themes/idealist/images/kubrickfooter.jpg public/wp-content/themes/idealist/images/kubrickheader.jpg
+git st
+git add public/wp-content/themes/idealist/images/
+git st
+git commit -a -m "Added picture to landing page. Removed unused images"
+git st
+git commit -a -m "Changed subpackage name to Idealist"
+git st
+git add public/wp-content/plugins/meta_background_css.php
+git commit
+git st
+git add public/wp-content/themes/idealist/company.php public/wp-content/themes/idealist/javascripts/
+git commit -a
+git st
+git commit -a
+git add public/wp-content/themes/idealist/header.php
+git commit -m "Company pages: Show company name as H1"
+git commit -a -m "Move navigation to templates from footer to get footer on landing page"
+cap deploy
+git st
+git commit -a -m "Hack News higher in the navigation"
+cap deploy
+git st
+git st
+git commit -a -m "Added Boilerplate CSS reset and basic stylings"
+cap deploy
+git t
+git st
+git commit -a -m "Styling..."
+cap deploy
+git st
+git add public/wp-content/plugins/google-analytics-for-wordpress/
+git commit -m "Added Google Analytics plugin"
+cap deploy
+exit
+exit
+exit
+exit
+exit
