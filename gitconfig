@@ -1,0 +1,52 @@
+[user]
+	name = Vesa Vänskä
+	email = vesan2000@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	ignored = "!git ls-files --others --exclude-standard"
+	datetag = !git tag `date \"+%Y%m%d%H%M\"`
+	unadd = reset HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[merge]
+	tool = opendiff
+	summary = true
+[diff]
+	color = auto
+	rename = copy
+[pager]
+	color = true
+[status]
+	color = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	excludesfile = /Users/vesan/.gitignore
+[gui]
+	fontui = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+[github]
+	user = vesan
+	token = c5d3212b38c5f8c1a8c4955bab97f32a
+[push]
+	default = current
+[diff "ruby"]
+	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
