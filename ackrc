@@ -1,0 +1,11 @@
+--sort-files
+--color
+--context=1
+# follow symlinks by default
+--follow
+--group
+--flush
+# Rails files
+--type-add=ruby=.haml,.rake,.rsel
+--type-set=markdown=.md
+--type-set=scala=.scala
