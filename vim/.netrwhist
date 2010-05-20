@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/vesan/code/clojure/mire'
+let g:netrw_dirhist_2='/Users/vesan/code/osoitella'
+let g:netrw_dirhist_3='/Users/vesan/code/osoitella/app'
+let g:netrw_dirhist_4='/Users/vesan/code/osoitella/app/controllers'
