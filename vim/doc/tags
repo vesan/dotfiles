@@ -10,3 +10,11 @@ project-settings	project.txt	/*project-settings*
 project-syntax	project.txt	/*project-syntax*
 project-tips	project.txt	/*project-tips*
 project.txt	project.txt	/*project.txt*
+:Ack	ack.txt	/*:Ack*
+:AckAdd	ack.txt	/*:AckAdd*
+:AckFromSearch	ack.txt	/*:AckFromSearch*
+:LAck	ack.txt	/*:LAck*
+:LAckAdd	ack.txt	/*:LAckAdd*
+ack	ack.txt	/*ack*
+ack-author	ack.txt	/*ack-author*
+ack.txt	ack.txt	/*ack.txt*
