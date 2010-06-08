@@ -134,3 +134,4 @@ let mapleader = ","
 
 nmap :W<cr> :w<cr>
 nmap :Q<cr> :q<cr>
+nmap <C-d> :NERDTreeToggle<cr>
