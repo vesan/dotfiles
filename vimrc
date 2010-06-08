@@ -132,3 +132,5 @@ map <leader>tm :tabmove
 
 let mapleader = ","
 
+nmap :W<cr> :w<cr>
+nmap :Q<cr> :q<cr>
