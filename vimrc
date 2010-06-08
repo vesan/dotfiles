@@ -44,6 +44,7 @@ set tabstop=2                     " Global tab width.
 set softtabstop=2                 " And again, related.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
+set softtabstop=2
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
