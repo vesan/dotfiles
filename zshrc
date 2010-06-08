@@ -108,6 +108,7 @@ HISTFILE=~/.history
 export HISTCONTROL=erasedups
 
 export VISUAL=mvim
+export GIT_EDITOR='mvim -f'
 export GEM_OPEN_EDITOR=mate
 export GEM_EDITOR='mate'
 export EDITOR='mate -w'
