@@ -6,3 +6,9 @@ set background=light                " Background.
 set lines=62 columns=100           " Window dimensions.
 
 " set guioptions-=r                 " Don't show right scrollbar
+
+if has("gui_macvim")
+  macmenu &File.New\ Tab key=<nop>
+  map <D-t> <Plug>PeepOpen
+end
+
