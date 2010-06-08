@@ -108,7 +108,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-colorscheme ir_black
+colorscheme railscasts
+" Other nice ones: ir_black
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
