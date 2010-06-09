@@ -31,7 +31,6 @@ set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
@@ -135,3 +134,10 @@ let mapleader = ","
 nmap :W<cr> :w<cr>
 nmap :Q<cr> :q<cr>
 nmap <C-d> :NERDTreeToggle<cr>
+
+" Emulate TextMate indenting style
+nmap <a-Tab> >>
+nmap <a-S-Tab> <<
+vmap <a-Tab> >gv
+vmap <a-S-Tab> <gv
+
