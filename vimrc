@@ -12,6 +12,7 @@ runtime macros/matchit.vim        " Load the matchit plugin.
 set nobackup	                    " do not keep a backup file, use versions instead
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set noswapfile                    " ... or don't keep swap files at all
 
 set history=50	                  " keep 50 lines of command line history
 set showcmd		                    " display incomplete commands
