@@ -142,3 +142,6 @@ nmap <a-S-Tab> <<
 vmap <a-Tab> >gv
 vmap <a-S-Tab> <gv
 
+" Faster way to get to previous file
+nmap gb <C-^>     
+
