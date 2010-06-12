@@ -157,3 +157,5 @@ nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g0
 
+" Autocomplete file edit path to current file path
+map <leader>ew :e <C-R>=expand("%:p:h") ."/"<CR>
