@@ -145,3 +145,15 @@ vmap <a-S-Tab> <gv
 " Faster way to get to previous file
 nmap gb <C-^>     
 
+" Shortcuts for per line moving
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g0
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g0
+
