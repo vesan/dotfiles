@@ -159,3 +159,11 @@ nmap <D-0> g0
 
 " Autocomplete file edit path to current file path
 map <leader>ew :e <C-R>=expand("%:p:h") ."/"<CR>
+
+" Get of the insert mode without Esc
+nnoremap <A-space> i
+imap <A-space> <Esc>
+
+" Rails keycombos
+imap <C-l> <Space>=><Space>
+imap <C-p> params[:]<Esc>i
