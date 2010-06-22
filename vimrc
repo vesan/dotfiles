@@ -161,8 +161,8 @@ nmap <D-0> g0
 map <leader>ew :e <C-R>=expand("%:p:h") ."/"<CR>
 
 " Get of the insert mode without Esc
-nnoremap <A-space> i
-imap <A-space> <Esc>
+nnoremap <C-space> i
+imap <C-space> <Esc>
 
 " Rails keycombos
 imap <C-l> <Space>=><Space>
