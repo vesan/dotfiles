@@ -166,4 +166,3 @@ imap <C-space> <Esc>
 
 " Rails keycombos
 imap <C-l> <Space>=><Space>
-imap <C-p> params[:]<Esc>i
