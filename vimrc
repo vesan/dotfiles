@@ -8,7 +8,6 @@ silent! call pathogen#runtime_append_all_bundles()
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
-
 set nobackup	                    " do not keep a backup file, use versions instead
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
@@ -110,7 +109,7 @@ if !exists(":DiffOrig")
 endif
 
 colorscheme railscasts
-" Other nice ones: ir_black
+" Other nice ones: ir_black, inkpot
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -144,6 +143,7 @@ vmap <a-S-Tab> <gv
 
 " Set SnipMate author
 let g:snips_author = "Vesa Vänskä"
+let g:snippets_dir = "~/.vim/snippets/"
 
 " Faster way to get to previous file
 nmap gb <C-^>     
