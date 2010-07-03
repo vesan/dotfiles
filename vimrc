@@ -142,6 +142,9 @@ nmap <a-S-Tab> <<
 vmap <a-Tab> >gv
 vmap <a-S-Tab> <gv
 
+" Set SnipMate author
+let g:snips_author = "Vesa Vänskä"
+
 " Faster way to get to previous file
 nmap gb <C-^>     
 
