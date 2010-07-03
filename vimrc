@@ -168,5 +168,11 @@ nnoremap <C-space> i
 imap <C-space> <Esc>
 vmap <C-space> <Esc>
 
-" Rails keycombos
-imap <C-l> <Space>=><Space>
+" Ruby
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+  " Rails keycombos
+  imap <C-l> <Space>=><Space>
