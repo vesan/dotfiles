@@ -12,6 +12,7 @@ require 'interactive_editor'
 
 # pretty print
 require 'pp'
+require 'ap'
 
 # http://aaronbedra.com/2008/6/12/slight-of-hand-for-the-ruby-man
 module Kernel
