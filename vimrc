@@ -204,3 +204,6 @@ vmap <C-space> <Esc>
 
   " Rails keycombos
   imap <C-l> <Space>=><Space>
+
+  " Rspec, needed for MakeGreen plugin
+  autocmd BufNewFile,BufRead *_spec.rb compiler rspec
