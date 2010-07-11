@@ -114,6 +114,31 @@ endif
 colorscheme railscasts
 " Other nice ones: ir_black, inkpot
 
+" COMMAND LINE CUSTOMIZATIONS
+" Basic emacs keybindings
+
+cnoremap <C-A>      <Home>
+cnoremap <C-B>      <Left>
+cnoremap <C-D>      <Del>
+cnoremap <C-E>      <End>
+cnoremap <C-F>      <Right>
+cnoremap <C-N>      <End>
+cnoremap <C-P>      <Up>
+" cnoremap <ESC>b     <S-Left>
+" cnoremap <ESC>f     <S-Right>
+" cnoremap <ESC><C-H> <C-W>
+
+
+" Normal mode - emacs style movements [960425]
+
+nmap <C-A>  0
+" nmap <C-B>  h
+" nmap <C-D>  x
+nmap <C-E>  $
+" nmap <C-F>  l
+" nmap <ESC>b b
+" nmap <ESC>f w
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
