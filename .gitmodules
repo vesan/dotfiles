@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-tcomment"]
 	path = vim/bundle/vim-tcomment
 	url = git://github.com/tsaleh/vim-tcomment.git
+[submodule "vim/bundle/vim-slidedown"]
+	path = vim/bundle/vim-slidedown
+	url = http://github.com/bleything/vim-slidedown.git
