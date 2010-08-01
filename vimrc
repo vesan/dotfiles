@@ -151,6 +151,12 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Split mappings
+map <C-H> <C-W>h<C-W><BAR>
+map <C-L> <C-W>l<C-W><BAR>
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby set foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
