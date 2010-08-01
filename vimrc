@@ -5,6 +5,7 @@
 set nocompatible
 
 silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
