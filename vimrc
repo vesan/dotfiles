@@ -214,3 +214,6 @@ vmap <C-space> <Esc>
 
   " Rspec, needed for MakeGreen plugin
   autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+" Prolog
+  autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
