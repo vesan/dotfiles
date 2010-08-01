@@ -31,3 +31,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular
+[submodule "vim/bundle/prolog.vim"]
+	path = vim/bundle/prolog.vim
+	url = git://github.com/adimit/prolog.vim.git
