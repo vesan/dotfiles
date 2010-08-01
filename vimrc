@@ -168,7 +168,7 @@ let mapleader = ","
 
 nmap :W<cr> :w<cr>
 nmap :Q<cr> :q<cr>
-nmap <C-D-d> :NERDTreeToggle<cr>
+nmap <leader>d :NERDTreeToggle<cr>
 
 " Emulate TextMate indenting style
 nmap <a-Tab> >>
