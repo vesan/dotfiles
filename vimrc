@@ -175,6 +175,8 @@ nmap <a-Tab> >>
 nmap <a-S-Tab> <<
 vmap <a-Tab> >gv
 vmap <a-S-Tab> <gv
+" and Command-Enter functionality
+inoremap <D-CR> <C-O>o
 
 " Set SnipMate author
 let g:snips_author = "Vesa Vänskä"
