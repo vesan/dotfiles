@@ -98,6 +98,8 @@ if has("autocmd")
 
   augroup END
 
+  " Reload vim config automatically after editing it
+  autocmd bufwritepost .vimrc source $MYVIMRC
 else
 
   set autoindent		" always set autoindenting on
