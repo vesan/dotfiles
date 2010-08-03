@@ -202,7 +202,7 @@ nmap <D-0> g0
 " Autocomplete file edit path to current file path
 map <leader>e :e <C-R>=expand("%:p:h") ."/"<CR>
 
-" Get of the insert mode without Esc
+" Get off the insert mode without Esc
 nnoremap <C-space> i
 imap <C-space> <Esc>
 vmap <C-space> <Esc>
