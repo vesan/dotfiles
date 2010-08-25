@@ -113,7 +113,8 @@ export GEM_OPEN_EDITOR=mate
 export GEM_EDITOR='mate'
 export EDITOR='mate -w'
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:/Users/vesan/bin:/opt/local/lib/postgresql84/bin:/Users/vesan/code/SDKs/flex_sdk_3.5.0.12683/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:/Users/vesan/bin:/opt/local/lib/postgresql84/bin:/Users/vesan/code/SDKs/flex_sdk_3.5.0.12683/bin:/usr/local/share/npm/bin:$PATH"
+export NODE_PATH="/usr/local/lib/node:$NODE_PATH"
 
 export TERM=xterm-color
 export CLICOLOR=true
