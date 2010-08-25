@@ -1,10 +1,11 @@
 --- 
-:benchmark: false
 :verbose: true
-:update_sources: true
+:backtrace: false
+:benchmark: false
 :sources: 
 - http://gemcutter.org
 - http://gems.github.com
-:backtrace: false
-:bulk_threshold: 1000
+- http://production.s3.rubygems.org/
+:update_sources: true
 rdoc: --line-numbers --format=darkfish
+:bulk_threshold: 1000
