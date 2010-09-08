@@ -221,3 +221,6 @@ vmap <C-space> <Esc>
 
 " Prolog
   autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
+
+" SASS
+  autocmd BufNewFile,BufRead *.scss set filetype=css
