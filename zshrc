@@ -109,9 +109,9 @@ export HISTCONTROL=erasedups
 
 export VISUAL=mvim
 export GIT_EDITOR='mvim -f'
-export GEM_OPEN_EDITOR=mate
-export GEM_EDITOR='mate'
-export EDITOR='mate -w'
+export GEM_OPEN_EDITOR=mvim
+export GEM_EDITOR='mvim'
+export EDITOR='mvim'
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:/Users/vesan/bin:/opt/local/lib/postgresql84/bin:/Users/vesan/code/SDKs/flex_sdk_3.5.0.12683/bin:/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node:$NODE_PATH"
@@ -202,7 +202,8 @@ function r {
   as_terminal_cmd "terminal_title Autospec"
   as_terminal_cmd "autospec"
   tab
-  mate .
+  as_terminal_cmd "terminal_title Hacking"
+  as_terminal_cmd "$EDITOR ."
 }
 
 manpdf() {
