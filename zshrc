@@ -230,6 +230,4 @@ bindkey "^[[3~" delete-char
 source $HOME/.zsh/_gem.zsh
 source $HOME/.zsh/_rake_completion.zsh
 
-cdpath=( ~/work )
-
 if [[ -s /Users/vesan/.rvm/scripts/rvm ]] ; then source /Users/vesan/.rvm/scripts/rvm ; fi
