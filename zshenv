@@ -1,2 +1,2 @@
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+if [[ -s /Users/vesan/.rvm/scripts/rvm ]] ; then source /Users/vesan/.rvm/scripts/rvm ; fi
 
