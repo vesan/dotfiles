@@ -9,5 +9,6 @@ set lines=62 columns=120           " Window dimensions.
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> <Plug>PeepOpen
+  map <D-r> :Rake<cr>
 end
 
