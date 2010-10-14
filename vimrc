@@ -202,6 +202,12 @@ nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g0
 
+" Text bubbling (moving lines and visual selections)
+nmap <C-Up> [e
+nmap <C-Down> ]e
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
 " Autocomplete file edit path to current file path
 map <leader>e :e <C-R>=expand("%:p:h") ."/"<CR>
 
