@@ -131,13 +131,12 @@ cnoremap <C-P>      <Up>
 " cnoremap <ESC>f     <S-Right>
 " cnoremap <ESC><C-H> <C-W>
 
-
 " Normal mode - emacs style movements [960425]
 
-nmap <C-A>  0
+" nmap <C-A>  0
 " nmap <C-B>  h
 " nmap <C-D>  x
-nmap <C-E>  $
+" nmap <C-E>  $
 " nmap <C-F>  l
 " nmap <ESC>b b
 " nmap <ESC>f w
