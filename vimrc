@@ -56,6 +56,10 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 set splitbelow
 
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -213,10 +217,15 @@ vmap <C-Down> ]egv
 " Autocomplete file edit path to current file path
 map <leader>e :e <C-R>=expand("%:p:h") ."/"<CR>
 
+nmap <silent> ,7 :nohlsearch<CR>
+
 " Get off the insert mode without Esc
 nnoremap <C-space> i
 imap <C-space> <Esc>
 vmap <C-space> <Esc>
+
+" Sudo
+cmap w!! w !sudo tee % >/dev/null
 
 " Ruby
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
