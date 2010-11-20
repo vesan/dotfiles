@@ -4,6 +4,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Rock the simple shell instead of ZSH
+set shell=/bin/sh
+
 silent! call pathogen#runtime_append_all_bundles()
 silent! call pathogen#helptags()
 
