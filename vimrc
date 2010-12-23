@@ -107,6 +107,7 @@ if has("autocmd")
 
   " Reload vim config automatically after editing it
   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost vimrc source $MYVIMRC
 else
 
   set autoindent		" always set autoindenting on
@@ -123,6 +124,16 @@ endif
 
 colorscheme railscasts
 " Other nice ones: ir_black, inkpot
+
+" Customizing Vim
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " COMMAND LINE CUSTOMIZATIONS
 " Basic emacs keybindings
