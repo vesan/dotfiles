@@ -34,3 +34,6 @@
 [submodule "vim/bundle/prolog.vim"]
 	path = vim/bundle/prolog.vim
 	url = git://github.com/adimit/prolog.vim.git
+[submodule "vim/bundle/hexHighlight"]
+	path = vim/bundle/hexHighlight
+	url = https://github.com/yurifury/hexHighlight.git
