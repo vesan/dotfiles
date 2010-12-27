@@ -108,7 +108,8 @@ HISTFILE=~/.history
 export HISTCONTROL=erasedups
 
 export VISUAL=mvim
-export GIT_EDITOR='mvim -f'
+# returns focus back to Terminal after save
+export GIT_EDITOR='mvim -f -c"au VimLeave * !open -a Terminal"'
 export GEM_OPEN_EDITOR=mvim
 export GEM_EDITOR='mvim'
 export EDITOR='mvim'
