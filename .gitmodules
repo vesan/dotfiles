@@ -37,3 +37,9 @@
 [submodule "vim/bundle/hexHighlight"]
 	path = vim/bundle/hexHighlight
 	url = git@github.com:vesan/hexHighlight.git
+[submodule "vim/bundle/textobj-user"]
+	path = vim/bundle/textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "vim/bundle/textobj-rubyblock"]
+	path = vim/bundle/textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
