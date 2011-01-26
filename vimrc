@@ -125,6 +125,8 @@ endif
 colorscheme railscasts
 " Other nice ones: ir_black, inkpot
 
+let mapleader = ","
+
 " Customizing Vim
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -172,8 +174,6 @@ map <C-K> <C-W>k<C-W>_
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-let mapleader = ","
-
 nmap :W<cr> :w<cr>
 nmap :Q<cr> :q<cr>
 
@@ -192,6 +192,14 @@ inoremap <D-CR> <C-O>o
 " Set SnipMate author
 let g:snips_author = "Vesa Vänskä"
 let g:snippets_dir = "~/.vim/snippets/"
+
+" Tabular
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<cr>
+  vmap <Leader>a= :Tabularize /=<cr>
+  nmap <Leader>a: :Tabularize /:\zs<cr>
+  vmap <Leader>a: :Tabularize /:\zs<cr>
+endif
 
 " Faster way to get to previous file
 nmap gb <C-^>     
