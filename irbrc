@@ -6,13 +6,18 @@ end
 require 'irb/completion'
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
-# load rubygems and interactive_editor
-require 'rubygems'
-require 'interactive_editor'
+# load rubygems and helper gems
+begin
+  require 'rubygems'
+  require 'interactive_editor'
+  require 'ap'
+  require 'hirb'
+  Hirb.enable
+rescue LoadError
+end
 
 # pretty print
 require 'pp'
-require 'ap'
 
 # http://aaronbedra.com/2008/6/12/slight-of-hand-for-the-ruby-man
 module Kernel
