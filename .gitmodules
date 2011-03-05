@@ -43,3 +43,6 @@
 [submodule "vim/bundle/textobj-rubyblock"]
 	path = vim/bundle/textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "vim/bundle/AutoClose"]
+	path = vim/bundle/AutoClose
+	url = git://github.com/vim-scripts/AutoClose.git
