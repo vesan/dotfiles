@@ -85,6 +85,12 @@ RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 autoload -U compinit
 compinit
 
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
 # By default up/down are bound to previous-history
 # and next-history respectively. The following does the
 # same but gives the extra functionality where if you
