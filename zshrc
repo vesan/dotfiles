@@ -231,3 +231,7 @@ bindkey "^[[3~" delete-char
 source $HOME/.zsh/_gem.zsh
 source $HOME/.zsh/_rake_completion.zsh
 
+function heftiest {
+  for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
+}
+
