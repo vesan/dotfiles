@@ -241,3 +241,4 @@ function heftiest {
   for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
 }
 
+export SOYWIKI_VIM=mvim
