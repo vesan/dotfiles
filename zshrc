@@ -131,7 +131,6 @@ alias -g '...'='../..'
 alias -g '....'='../../..'
 alias -g '.....'='../../../..'
 alias -g 'grep'='grep -n --colour'
-alias git=hub
 
 # alias ss='script/server'
 
