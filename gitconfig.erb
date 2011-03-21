@@ -15,6 +15,7 @@
 	datetag = !git tag `date \"+%Y%m%d%H%M\"`
 	unadd = reset HEAD
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
 [merge]
 	tool = opendiff
 	summary = true
