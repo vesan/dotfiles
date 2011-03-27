@@ -162,10 +162,14 @@ cnoremap <C-P>      <Up>
 " nmap <ESC>f w
 
 " Split mappings
-map <C-H> <C-W>h<C-W><BAR>
-map <C-L> <C-W>l<C-W><BAR>
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
+" map <C-H> <C-W>h<C-W><BAR>
+" map <C-L> <C-W>l<C-W><BAR>
+" map <C-J> <C-W>j<C-W>_
+" map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+map <C-J> <C-W>j
+map <C-K> <C-W>k
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby set foldmethod=syntax
@@ -174,8 +178,9 @@ map <C-K> <C-W>k<C-W>_
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-nmap :W<cr> :w<cr>
-nmap :Q<cr> :q<cr>
+command! W w
+command! Q q
+
 
 " NERDTree
 nmap <leader>d :NERDTreeToggle<cr>
