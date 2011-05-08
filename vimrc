@@ -122,8 +122,9 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-colorscheme railscasts
-" Other nice ones: ir_black, inkpot
+set background=dark
+colorscheme solarized
+" Other nice ones: ir_black, inkpot, railscasts
 
 let mapleader = ","
 
