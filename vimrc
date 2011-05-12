@@ -154,13 +154,13 @@ cnoremap <C-P>      <Up>
 
 " Normal mode - emacs style movements [960425]
 
-" nmap <C-A>  0
-" nmap <C-B>  h
-" nmap <C-D>  x
-" nmap <C-E>  $
-" nmap <C-F>  l
-" nmap <ESC>b b
-" nmap <ESC>f w
+nmap <C-A>  0
+nmap <C-B>  h
+nmap <C-D>  x
+nmap <C-E>  $
+nmap <C-F>  l
+nmap <ESC>b b
+nmap <ESC>f w
 
 " Split mappings
 " map <C-H> <C-W>h<C-W><BAR>
