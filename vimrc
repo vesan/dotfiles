@@ -257,9 +257,6 @@ cmap w!! w !sudo tee % >/dev/null
 " Prolog
   autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
 
-" SASS
-  autocmd BufNewFile,BufRead *.scss set filetype=css
-
 " Crazy
 " Building Lauri's environment :-)
 nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
