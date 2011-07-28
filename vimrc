@@ -257,6 +257,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Prolog
   autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
 
+" ActionScript
+  autocmd BufNewFile,BufRead *.as set filetype=actionscript
+
 " Crazy
 " Building Lauri's environment :-)
 nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
