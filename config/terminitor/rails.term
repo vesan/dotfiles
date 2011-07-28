@@ -1,0 +1,21 @@
+# project_path = `pwd`
+# before { run "cd #{project_path}" } # execute this command before other commands in the default window
+
+tab do
+  run "ss"
+end
+
+tab do
+  run "sc"
+end
+
+tab do
+  run "autotest"
+end
+
+tab do
+  run "mvim ."
+  run "sleep 5"
+  run "open --background http://rails.fi:3000"
+end
+
