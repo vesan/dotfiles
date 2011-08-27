@@ -242,3 +242,4 @@ function heftiest {
 
 export SOYWIKI_VIM=mvim
 alias "update-vim-plugins"="cd ~/.dotfiles && git submodule -q foreach git pull -q origin master"
+fpath=(~/.zsh/Completion $fpath)
