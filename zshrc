@@ -243,3 +243,7 @@ function heftiest {
 export SOYWIKI_VIM=mvim
 alias "update-vim-plugins"="cd ~/.dotfiles && git submodule -q foreach git pull -q origin master"
 fpath=(~/.zsh/Completion $fpath)
+
+# For Scala
+export JAVA_OPTS="-Dfile.encoding=UTF-8"
+
