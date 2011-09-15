@@ -3,3 +3,4 @@
 *.swp
 .rvmrc
 doc/tags
+*.sqlite3-journal
