@@ -66,7 +66,7 @@
 	url = https://github.com/airblade/vim-rooter.git
 [submodule "vim/bundle/scss-syntax"]
 	path = vim/bundle/scss-syntax
-	url = https://github.com/cakebaker/scss-syntax.vim.git
+	url = https://github.com/vesan/scss-syntax.vim.git
 [submodule "vim/bundle/actionscript.vim"]
 	path = vim/bundle/actionscript.vim
 	url = https://github.com/vim-scripts/actionscript.vim--Leider.git
