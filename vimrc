@@ -75,6 +75,8 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
+set wildignore+=*.o,*.png,*.jpg,*.gif,*.pdf
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
