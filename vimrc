@@ -1,5 +1,16 @@
 " An example for a vimrc file.
 
+" Don't load PeepOpen
+let g:peepopen_loaded = 1
+
+" Command-T config
+let g:CommandTMatchWindowAtTop = 1
+
+" To get rid of complaining makegreen
+if !hasmapto('<Plug>MakeGreen')
+  map <unique> <silent> <Leader>ö <Plug>MakeGreen
+endif
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
