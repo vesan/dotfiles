@@ -1,4 +1,4 @@
-# from http://github.com/ryanb/dotfiles/tree/master
+# Modified version of http://github.com/ryanb/dotfiles/tree/master
 #
 # Copyright (c) 2008 Ryan Bates
 # 
@@ -29,6 +29,7 @@ task :default => [:install]
 desc "install the dot files into user's home directory"
 task :install => :update_submodules do
   replace_all = false
+  puts "Symlinking files..."
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc LICENSE].include? file
     
@@ -55,10 +56,17 @@ task :install => :update_submodules do
       link_file(file)
     end
   end
+
+  Dir.chdir(File.expand_path("~/.vim/bundle/command-t")) do
+    puts "Installing Command-T..."
+    `rvm system rake make`
+  end
 end
 
 task :update_submodules do
+  puts "Syncing git submodules..."
   `git submodule sync`
+  puts "Updating git submodules..."
   `git submodule update --init`
 end
 
