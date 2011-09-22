@@ -281,6 +281,9 @@ cmap w!! w !sudo tee % >/dev/null
 " ActionScript
   autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
+" CSS
+  autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
+
 " Crazy
 " Building Lauri's environment :-)
 nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
