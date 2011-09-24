@@ -12,3 +12,4 @@ if has("gui_macvim")
   map <D-r> :Rake<cr>
 end
 
+set fullscreen
