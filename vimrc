@@ -77,6 +77,12 @@ set winheight=999
 
 set wildignore+=*.o,*.png,*.jpg,*.gif,*.pdf
 
+" Shortcut to rapidly toggle `set list`
+map <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
