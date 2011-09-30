@@ -12,3 +12,8 @@ if has("gui_macvim")
   map <D-r> :Rake<cr>
 end
 
+" Load local configs
+if filereadable(expand("~/.gvimrc.local"))
+  source ~/.gvimrc.local
+endif
+

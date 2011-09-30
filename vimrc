@@ -293,3 +293,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Crazy
 " Building Lauri's environment :-)
 nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
+
+" Load local configs
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
