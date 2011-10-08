@@ -212,6 +212,12 @@ function r {
   as_terminal_cmd "$EDITOR ."
 }
 
+function wiki {
+  currentpath=$(pwd)
+  cd ~/Dropbox/wiki && soywiki
+  cd $currentpath
+}
+
 manpdf() {
   man -t $@ | open -f -a /Applications/Preview.app/
 }
