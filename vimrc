@@ -1,10 +1,14 @@
 " An example for a vimrc file.
 
+let mapleader = ","
+
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
 
 " Command-T config
 let g:CommandTMatchWindowAtTop = 1
+
+map <silent> <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 
 " To get rid of complaining makegreen
 if !hasmapto('<Plug>MakeGreen')
@@ -153,8 +157,6 @@ endif
 set background=dark
 colorscheme solarized
 " Other nice ones: ir_black, inkpot, railscasts
-
-let mapleader = ","
 
 " Customizing Vim
 " Show syntax highlighting groups for word under cursor
