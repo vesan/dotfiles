@@ -5,7 +5,9 @@
 --follow
 --group
 --flush
-# Rails files
+
 --type-add=ruby=.haml,.rake,.rsel
 --type-set=markdown=.md
 --type-set=scala=.scala
+--type-add=handlebars=.handlebars
+--type-add=sass=.scss,.sass
