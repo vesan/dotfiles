@@ -222,10 +222,6 @@ manpdf() {
   man -t $@ | open -f -a /Applications/Preview.app/
 }
 
-# added by git installer http://code.google.com/p/git-osx-installer/
-export PATH=/usr/local/git/bin:$PATH
-export MANPATH=/usr/local/git/man:$MANPATH
-
 alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 
 alias 'rake?'="rake -T | grep $1"
