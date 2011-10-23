@@ -1,0 +1,4 @@
+graphics_toolkit("fltk");
+PS1(">> ");
+PS2(">  ");
+
