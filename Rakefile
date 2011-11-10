@@ -56,6 +56,11 @@ task :install => :update_submodules do
       link_file(file)
     end
   end
+
+  Dir.chdir(File.expand_path("~/.vim/bundle/command-t")) do
+    puts "Installing Command-T..."
+    `rvm system && rake make`
+  end
 end
 
 task :update_submodules do
