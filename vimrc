@@ -297,6 +297,10 @@ cmap w!! w !sudo tee % >/dev/null
 " Building Lauri's environment :-)
 nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
 
+" Ack
+" map <leader>s :Ack <c-r><c-w><cr>
+map <leader>s :execute "Ack " . expand("<cword>") <cr>
+
 " Load local configs
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
