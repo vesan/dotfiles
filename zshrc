@@ -126,6 +126,20 @@ export NODE_PATH="/usr/local/lib/node:$NODE_PATH"
 export TERM=xterm-color
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
+
+# Set Apple Terminal.app resume directory
+# From: http://superuser.com/questions/313650/resume-zsh-terminal-os-x-lion
+if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
+  function chpwd {
+    local SEARCH=' '
+    local REPLACE='%20'
+    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+    printf '\e]7;%s\a' "$PWD_URL"
+  }
+
+  chpwd
+}
+
 alias ls='ls -G'
 alias -g '...'='../..'
 alias -g '....'='../../..'
