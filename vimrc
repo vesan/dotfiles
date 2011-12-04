@@ -263,11 +263,6 @@ map <leader>e :e <C-R>=expand("%:p:h") ."/"<CR>
 
 nmap <silent> ,7 :nohlsearch<CR>
 
-" Get off the insert mode without Esc
-nnoremap <C-space> i
-imap <C-space> <Esc>
-vmap <C-space> <Esc>
-
 " Sudo
 cmap w!! w !sudo tee % >/dev/null
 
