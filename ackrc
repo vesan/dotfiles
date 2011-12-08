@@ -11,3 +11,4 @@
 --type-set=scala=.scala
 --type-set=handlebars=.handlebars
 --type-set=sass=.scss,.sass
+--type-set=coffeescript=.coffee
