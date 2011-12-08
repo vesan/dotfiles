@@ -271,7 +271,8 @@ cmap w!! w !sudo tee % >/dev/null
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-  autocmd BufNewFile,BufRead *.ru set filetype=ruby
+  autocmd BufNewFile,BufRead *.ru set ft=ruby
+  autocmd BufNewFile,BufRead *.rabl set ft=ruby
 
   " Rails keycombos
   imap <C-l> <Space>=><Space>
