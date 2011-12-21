@@ -262,7 +262,9 @@ vmap <C-Down> ]egv
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :e %%
 
-nmap <silent> ,7 :nohlsearch<CR>
+" Clear the search buffer when hitting return
+nnoremap <CR> :nohlsearch<cr>
+nmap <silent> ,7 :nohlsearch<cr>
 
 " Sudo
 cmap w!! w !sudo tee % >/dev/null
