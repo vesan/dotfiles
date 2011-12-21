@@ -259,7 +259,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Autocomplete file edit path to current file path
-map <leader>e :e <C-R>=expand("%:p:h") ."/"<CR>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :e %%
 
 nmap <silent> ,7 :nohlsearch<CR>
 
