@@ -5,8 +5,6 @@
 # From git distribution, slightly modified to work with zsh
 # source ~/bin/dotfiles/git-completion.zsh
 
-export LC_ALL="fi_FI.UTF-8"
-
 __git_ps1 ()
 {
 	local g="$(git rev-parse --git-dir 2>/dev/null)"
