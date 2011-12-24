@@ -217,6 +217,10 @@ command! Q q
 nmap <leader>d :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 
+" HTML
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
 " Emulate TextMate indenting style
 nmap <M-Tab> >>
 nmap <M-S-Tab> <<
