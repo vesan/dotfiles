@@ -263,3 +263,6 @@ fpath=(~/.zsh/Completion $fpath)
 # For Scala
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
 
+# Needed for emacs keybindings to work
+alias tmux='EDITOR="" VISUAL="" tmux'
+
