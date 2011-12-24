@@ -218,10 +218,10 @@ nmap <leader>d :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 
 " Emulate TextMate indenting style
-nmap <a-Tab> >>
-nmap <a-S-Tab> <<
-vmap <a-Tab> >gv
-vmap <a-S-Tab> <gv
+nmap <M-Tab> >>
+nmap <M-S-Tab> <<
+vmap <M-Tab> >gv
+vmap <M-S-Tab> <gv
 " and Command-Enter functionality
 inoremap <D-CR> <C-O>o
 
