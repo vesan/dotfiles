@@ -241,6 +241,8 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<cr>
 endif
 
+let Tlist_WinWidth = 30
+
 " Faster way to get to previous file
 nmap gb <C-^>     
 
