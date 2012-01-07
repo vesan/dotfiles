@@ -63,7 +63,7 @@ git_prompt_info() {
   if [ -n "$branch_prompt" ]; then
     commit_id=$(git rev-parse --short HEAD 2>/dev/null)
     status_icon=$(git_status)
-    echo "$fg_bold[red]$branch_prompt$reset_color $commit_id $fg_bold[red]$status_icon"
+    echo "$fg_bold[red]$branch_prompt$reset_color $commit_id $fg_bold[red]$status_icon$reset_color"
   fi
 }
 
@@ -78,7 +78,7 @@ colors
 setopt prompt_subst
 PROMPT='
 %~$(git_prompt_info)
-→ %{$reset_color%}'
+%{$fg_bold[red]%}→ %{$reset_color%}'
 
 RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 
