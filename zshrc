@@ -149,9 +149,11 @@ alias -g 'grep'='grep -n --colour'
 
 # alias ss='script/server'
 
+alias sr='script/rails'
+
 ss () {
   if [ -f ./script/rails ]; then 
-    rails server $argv
+    ./script/rails server $argv
   else
     ./script/server $argv
   fi
@@ -160,7 +162,7 @@ ss () {
 # alias sc='script/console'
 sc () {
   if [ -f ./script/rails ]; then 
-    rails console $argv
+    ./script/rails console $argv
   else
     ./script/console $argv
   fi
