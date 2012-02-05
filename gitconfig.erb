@@ -33,6 +33,7 @@
   gnc = goodness --cached
   fa = fetch --all
   pom = push origin master
+  up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
 [merge]
 	tool = opendiff
 	summary = true
