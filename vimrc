@@ -80,7 +80,7 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
-set wildignore+=*.o,*.png,*.jpg,*.gif,*.pdf,*.jar
+set wildignore+=*.o,*.png,*.jpg,*.gif,*.pdf,*.jar,*.scssc
 
 " Shortcut to rapidly toggle `set list`
 map <leader>l :set list!<CR>
