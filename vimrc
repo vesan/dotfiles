@@ -179,7 +179,6 @@ endfunc
 
 cnoremap <C-A>      <Home>
 cnoremap <C-B>      <Left>
-cnoremap <C-D>      <Del>
 cnoremap <C-E>      <End>
 cnoremap <C-F>      <Right>
 cnoremap <C-N>      <End>
@@ -192,7 +191,6 @@ cnoremap <C-P>      <Up>
 
 nmap <C-A>  0
 nmap <C-B>  h
-nmap <C-D>  x
 nmap <C-E>  $
 nmap <C-F>  l
 nmap <ESC>b b
