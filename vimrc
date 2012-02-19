@@ -296,6 +296,9 @@ nmap <silent> ,7 :nohlsearch<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 " Ruby
+map <leader>c :!ruby -I"test" -I"spec" %<CR>
+
+" Ruby
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
