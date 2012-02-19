@@ -1,22 +1,22 @@
 [user]
-	name = Vesa Vänskä
-	email = vesan2000@gmail.com
+  name = Vesa Vänskä
+  email = vesan2000@gmail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
   di = diff
   dc = diff --cached
-	ignored = "!git ls-files --others --exclude-standard"
-	datetag = !git tag `date \"+%Y%m%d%H%M\"`
-	unadd = reset HEAD
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  ignored = "!git ls-files --others --exclude-standard"
+  datetag = !git tag `date \"+%Y%m%d%H%M\"`
+  unadd = reset HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
   amend = commit --amend
   aa = add --all
@@ -35,40 +35,40 @@
   pom = push origin master
   up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
 [merge]
-	tool = opendiff
-	summary = true
+  tool = opendiff
+  summary = true
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
 [diff]
-	color = auto
-	rename = copy
+  color = auto
+  rename = copy
 [pager]
-	color = true
+  color = true
 [status]
-	color = auto
+  color = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [core]
-	excludesfile = /Users/vesan/.gitignore
+  excludesfile = /Users/vesan/.gitignore
 [gui]
-	fontui = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+  fontui = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+  fontdiff = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
 [github]
-	user = vesan
-	token = <%= print("API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+  user = vesan
+  token = <%= print("API Token: "); STDOUT.flush; STDIN.gets.chomp %>
   password = <%= print("Password: "); STDOUT.flush; STDIN.gets.chomp %>
 [push]
-	default = current
+  default = current
 [diff "ruby"]
-	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
