@@ -27,14 +27,14 @@ silent! call pathogen#helptags()
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
-set nobackup	                    " do not keep a backup file, use versions instead
+set nobackup                      " do not keep a backup file, use versions instead
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set noswapfile                    " ... or don't keep swap files at all
 
-set history=50	                  " keep 50 lines of command line history
-set showcmd		                    " display incomplete commands
-set showmode		                  " display the mode you're in.
+set history=50                    " keep 50 lines of command line history
+set showcmd                       " display incomplete commands
+set showmode                      " display the mode you're in.
 
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
 
@@ -148,7 +148,7 @@ if has("autocmd")
   autocmd bufwritepost vimrc source $MYVIMRC
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -157,7 +157,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 set background=dark
