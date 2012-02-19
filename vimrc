@@ -196,6 +196,9 @@ nmap <C-F>  l
 nmap <ESC>b b
 nmap <ESC>f w
 
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+
 " Split mappings
 " map <C-H> <C-W>h<C-W><BAR>
 " map <C-L> <C-W>l<C-W><BAR>
