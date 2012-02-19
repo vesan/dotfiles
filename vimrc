@@ -246,6 +246,8 @@ if exists(":Tabularize")
   vmap <Leader>a= :Tabularize /=<cr>
   nmap <Leader>a: :Tabularize /:\zs<cr>
   vmap <Leader>a: :Tabularize /:\zs<cr>
+  nmap <Leader>a{ :Tabularize /{<cr>
+  vmap <Leader>a{ :Tabularize /{<cr>
 endif
 
 let Tlist_WinWidth = 30
