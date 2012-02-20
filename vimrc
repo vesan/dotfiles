@@ -241,14 +241,15 @@ let g:snips_author = "Vesa Vänskä"
 let g:snippets_dir = "~/.vim/snippets/"
 
 " Tabular
-if exists(":Tabularize")
+" TODO Fix the if, for some reason with it the code is not loaded
+" if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<cr>
   vmap <Leader>a= :Tabularize /=<cr>
   nmap <Leader>a: :Tabularize /:\zs<cr>
   vmap <Leader>a: :Tabularize /:\zs<cr>
   nmap <Leader>a{ :Tabularize /{<cr>
   vmap <Leader>a{ :Tabularize /{<cr>
-endif
+" endif
 
 let Tlist_WinWidth = 30
 
