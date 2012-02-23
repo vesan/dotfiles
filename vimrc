@@ -74,6 +74,8 @@ set splitbelow
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set nofoldenable " disable folding
 
+set autoread " if file has been changed outside of vim, reload it
+
 " set winwidth=84
 
 " We have to have a winheight bigger than we want to set winminheight. But if
