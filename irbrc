@@ -67,7 +67,7 @@ end
 # from: http://pastie.org/113760
 class Object
   def grep_methods(search_term)
-    methods.find_all {|method| method.downcase.include? search_term.downcase}
+    methods.find_all {|method| method.to_s.downcase.include? search_term.to_s.downcase}
   end
   
   def non_class_methods
