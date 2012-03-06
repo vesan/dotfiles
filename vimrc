@@ -5,6 +5,11 @@ let mapleader = ","
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
 
+" ctrl-p config
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_height = 20
 
 " To get rid of complaining makegreen
 if !hasmapto('<Plug>MakeGreen')
