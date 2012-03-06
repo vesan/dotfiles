@@ -1,6 +1,6 @@
 [user]
-  name = Vesa Vänskä
-  email = vesan2000@gmail.com
+  name = <%= print("Git name"); STDOUT.flush; STDIN.gets.chomp %>
+  email = <%= print("Git email"); STDOUT.flush; STDIN.gets.chomp %>
 [color]
   diff = auto
   status = auto
@@ -60,12 +60,12 @@
   changed = green
   untracked = cyan
 [core]
-  excludesfile = /Users/vesan/.gitignore
+  excludesfile = ~/.gitignore
 [gui]
   fontui = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
   fontdiff = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
 [github]
-  user = vesan
+  user = <%= print("Github username: "); STDOUT.flush; STDIN.gets.chomp %>
   token = <%= print("API Token: "); STDOUT.flush; STDIN.gets.chomp %>
   password = <%= print("Password: "); STDOUT.flush; STDIN.gets.chomp %>
 [push]
