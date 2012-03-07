@@ -114,12 +114,12 @@ SAVEHIST=5000
 HISTFILE=~/.history
 export HISTCONTROL=erasedups
 
-export VISUAL=vim
+export VISUAL=mvim
 # returns focus back to Terminal after save
 # export GIT_EDITOR='mvim -f -c"au VimLeave * !open -a Terminal"'
-export GEM_OPEN_EDITOR=vim
-export GEM_EDITOR=vim
-export EDITOR=vim
+export GEM_OPEN_EDITOR=mvim
+export GEM_EDITOR=mvim
+export EDITOR=mvim
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/usr/local/share/npm/bin:~/.cljr/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
