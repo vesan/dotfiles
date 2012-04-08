@@ -227,6 +227,11 @@ command! Q q
 nmap <leader>d :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 
+" vim-vroom
+let g:vroom_map_keys = 0
+map <Leader>v :VroomRunTestFile<CR>
+map <Leader>V :VroomRunNearestTest<CR>
+
 " HTML
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
