@@ -292,6 +292,17 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
+function! OpenChangedFiles()
+  only
+  let status = system('git status -s | grep "^ \?\(M\|A\)" | cut -d " " -f 3')
+  let filenames = split(status, "\n")
+  exec "edit " . filenames[0]
+  for filename in filenames[1:]
+    exec "sp " . filename
+  endfor
+endfunction
+command! OpenChangedFiles :call OpenChangedFiles()
+
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
 nmap <silent> ,7 :nohlsearch<cr>
@@ -315,6 +326,17 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 
   " Rspec, needed for MakeGreen plugin
   autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+  " Promote variable to RSpec let
+  function! PromoteToLet()
+    normal! dd
+    " exec '?^\s*it\>'
+    normal! P
+    .s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+    normal ==
+  endfunction
+  command! PromoteToLet :call PromoteToLet()
+  map <leader>p :PromoteToLet<cr>
 
 " Prolog
   autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
