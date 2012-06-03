@@ -6,16 +6,43 @@ end
 
 require 'irb/completion'
 IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:AUTO_INDENT] = true
 
 # load rubygems and helper gems
-begin
-  require 'rubygems'
-  require 'interactive_editor'
-  require 'ap'
-  require 'hirb'
-  Hirb.enable
+
+# Assume a bundler-managed environment, so find and require the irb-specific
+# enhancement gems directly. This does not do dependency tracking, so
+# dependent gems must be explicitly specified!
+#
+# Taken from: https://github.com/aniero/dotfiles/blob/master/irbrc#L4-35
+def irb_require(gemname, lib=nil)
+  # allow bundler or rubygems a fair shake at loading the library first
+  require lib ? lib : gemname
 rescue LoadError
+  # didn't work? we'll do it ourself
+  candidates = []
+
+  ENV["GEM_PATH"].split(":").map {|p| p + "/gems" }.each do |path|
+    Dir.glob(path + "/*").each do |entry|
+      if File.directory?(entry) && File.basename(entry).start_with?(gemname)
+        candidates << entry
+      end
+    end
+  end
+
+  if candidates.empty?
+    raise LoadError, "could not load #{lib || gemname} via irb_require"
+  else
+    $:.push(candidates.sort.reverse.first + "/lib")
+    require lib ? lib : gemname
+  end
 end
+
+irb_require "awesome_print"
+irb_require "hirb"
+irb_require "interactive_editor"
+# irb_require "looksee"
+Hirb.enable
 
 # pretty print
 require 'pp'
