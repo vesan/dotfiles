@@ -12,3 +12,4 @@
 --type-set=handlebars=.handlebars
 --type-set=sass=.scss,.sass
 --type-set=coffeescript=.coffee
+--type-set=coffee=.coffee
