@@ -267,3 +267,6 @@ export JAVA_OPTS="-Dfile.encoding=UTF-8"
 # Needed for emacs keybindings to work
 alias tmux='EDITOR="" VISUAL="" tmux'
 
+# Go
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin
