@@ -189,7 +189,7 @@ em () {
 alias migrate="bundle exec rake db:migrate db:test:prepare"
 alias remigrate="bundle exec rake db:migrate db:migrate:redo db:schema:dump db:test:prepare"
 
-alias huh="git diff HEAD | mate"
+alias huh="git diff HEAD | vim"
 alias start-postgres="sudo su postgres -c '/opt/local/lib/postgresql84/bin/postgres -D /opt/local/var/db/postgresql84/defaultdb &'"
 
 # Opens a new tab with the cwd
