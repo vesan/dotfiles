@@ -82,6 +82,8 @@ PROMPT='
 
 RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
 # http://stackoverflow.com/questions/1642881/how-to-enable-git-file-tab-completion-with-zsh-compinit
 autoload -U compinit
 compinit
@@ -128,18 +130,42 @@ export TERM=xterm-color
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
 
-# Set Apple Terminal.app resume directory
-# From: http://superuser.com/questions/313650/resume-zsh-terminal-os-x-lion
-if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
-  function chpwd {
-    local SEARCH=' '
-    local REPLACE='%20'
-    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+# Tell the terminal about the working directory whenever it changes.
+# From: http://superuser.com/questions/313650/resume-zsh-terminal-os-x-lion/328148#328148
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
+  update_terminal_cwd() {
+    # Identify the directory using a "file:" scheme URL, including
+    # the host name to disambiguate local vs. remote paths.
+
+    # Percent-encode the pathname.
+    local URL_PATH=''
+    {
+      # Use LANG=C to process text byte-by-byte.
+      local i ch hexch LANG=C
+      for ((i = 1; i <= ${#PWD}; ++i)); do
+        ch="$PWD[i]"
+        if [[ "$ch" =~ [/._~A-Za-z0-9-] ]]; then
+          URL_PATH+="$ch"
+        else
+          hexch=$(printf "%02X" "'$ch")
+          URL_PATH+="%$hexch"
+        fi
+      done
+    }
+
+    local PWD_URL="file://$HOST$URL_PATH"
+    #echo "$PWD_URL"        # testing
     printf '\e]7;%s\a' "$PWD_URL"
   }
 
-  chpwd
-}
+  # Register the function so it is called whenever the working
+  # directory changes.
+  autoload add-zsh-hook
+  add-zsh-hook chpwd update_terminal_cwd
+
+  # Tell the terminal about the initial directory.
+  update_terminal_cwd
+fi
 
 alias ls='ls -G'
 alias -g '...'='../..'
