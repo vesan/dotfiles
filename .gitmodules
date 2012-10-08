@@ -88,3 +88,6 @@
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
 	url = https://github.com/epmatsw/ag.vim.git
+[submodule "vim/bundle/rtf_pygmentize"]
+	path = vim/bundle/rtf_pygmentize
+	url = https://github.com/rafaelfranca/rtf_pygmentize.git
