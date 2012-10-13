@@ -91,3 +91,6 @@
 [submodule "vim/bundle/rtf_pygmentize"]
 	path = vim/bundle/rtf_pygmentize
 	url = https://github.com/rafaelfranca/rtf_pygmentize.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
