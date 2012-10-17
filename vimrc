@@ -352,9 +352,7 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 " CSS
   autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
 
-" Crazy
-" Building Lauri's environment :-)
-nmap <leader>å :vsp<cr>:vsp<cr>:sp<cr><C-w>l:sp<cr><C-w>l:sp<cr>
+noremap <leader>å :set paste<CR>:put *<CR>:set nopaste<CR>
 
 " Ack
 " map <leader>s :Ack <c-r><c-w><cr>
