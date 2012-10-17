@@ -296,3 +296,6 @@ alias tmux='EDITOR="" VISUAL="" tmux'
 # Go
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
