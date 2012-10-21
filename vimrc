@@ -354,6 +354,9 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 
 noremap <leader>å :set paste<CR>:put *<CR>:set nopaste<CR>
 
+noremap + :cn<cr>
+noremap - :cp<cr>
+
 " Ack
 " map <leader>s :Ack <c-r><c-w><cr>
 map <leader>s :execute "Ack " . expand("<cword>") <cr>
