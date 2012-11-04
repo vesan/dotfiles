@@ -184,7 +184,7 @@ cnoremap <C-A>      <Home>
 cnoremap <C-B>      <Left>
 cnoremap <C-E>      <End>
 cnoremap <C-F>      <Right>
-cnoremap <C-N>      <End>
+cnoremap <C-N>      <Down>
 cnoremap <C-P>      <Up>
 " cnoremap <ESC>b     <S-Left>
 " cnoremap <ESC>f     <S-Right>
