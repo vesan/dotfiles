@@ -149,6 +149,15 @@ if has("autocmd")
   " Reload vim config automatically after editing it
   autocmd bufwritepost .vimrc source $MYVIMRC
   autocmd bufwritepost vimrc source $MYVIMRC
+
+  " Highlight trailing whitespace
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+  match ExtraWhitespace /\s\+$/
+  autocmd WinEnter * match ExtraWhitespace /\s\+$/
+  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+  autocmd BufWinLeave * call clearmatches()
+
 else
 
   set autoindent    " always set autoindenting on
