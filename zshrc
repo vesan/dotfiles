@@ -267,6 +267,8 @@ alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 
 alias 'rake?'="rake -T | grep $1"
 
+alias datafart='curl --data-binary @- datafart.com'
+
 function calculator() {
 	bc -ql <<< "$@"|perl -pe 's/(\.[^0]+)0+$|\.0+$/$1/'
 }
