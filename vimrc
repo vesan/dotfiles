@@ -368,6 +368,7 @@ noremap - :cp<cr>
 
 " Ack
 " map <leader>s :Ack <c-r><c-w><cr>
+let g:ackprg = 'ag --nogroup --nocolor --column'
 map <leader>s :execute "Ack " . expand("<cword>") <cr>
 
 " Search for selected text, forwards or backwards.
