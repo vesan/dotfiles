@@ -388,6 +388,12 @@ vnoremap <silent> # :<C-U>
 " find merge conflict markers
 nnoremap <Leader>! /\v^[<=>]{7}( <Bar>$)/<Return>
 
+" visually select the text that was last edited or pasted
+nnoremap gV `[v`]
+
+" visually select a search result
+nnoremap g/ //e<Return>v??<Return>
+
 " Settings for VimClojure
 let vimclojure#HighlightBuiltins=1      " Highlight Clojure's builtins
 let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
