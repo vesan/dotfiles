@@ -301,3 +301,5 @@ export PATH=$PATH:$GOPATH/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+eval "$(hub alias -s)"
