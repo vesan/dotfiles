@@ -97,3 +97,6 @@
 [submodule "vim/bundle/vim-ruby-refactoring"]
 	path = vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "vim/bundle/IndexedSearch"]
+	path = vim/bundle/IndexedSearch
+	url = https://github.com/vim-scripts/IndexedSearch.git
