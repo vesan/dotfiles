@@ -394,6 +394,10 @@ nnoremap gV `[v`]
 " visually select a search result
 nnoremap g/ //e<Return>v??<Return>
 
+" Preserve flags when repeating a substitution
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
 " Settings for VimClojure
 let vimclojure#HighlightBuiltins=1      " Highlight Clojure's builtins
 let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
