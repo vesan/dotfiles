@@ -281,8 +281,39 @@ bindkey "^[[3~" delete-char
 source $HOME/.zsh/_gem.zsh
 source $HOME/.zsh/_rake_completion.zsh
 
+# code reading tools
+
 function heftiest {
   for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
+}
+
+function git_history {
+  git log $1 | grep "Date: "
+}
+
+function number_of_commits {
+  git_history $1 | wc -l
+}
+
+function first_commit {
+  git_history $1 | tail -1
+}
+
+function last_commit {
+  git_history $1 | head -1
+}
+
+function generate_git_stats {
+  echo "filename;\
+  lines of code;\
+  number of commits;\
+  date of first commit;\
+  date of last commit"
+  for filename in $(find app test spec lib -iname "*.rb"); do
+    echo "`wc -l $filename` `number_of_commits $filename` `first_commit $filename` `last_commit $filename`" |
+    awk '{print $2 ";" $1 ";" $3 ";" $6 " " $7 " " $9 ";" $13 " " $14 " " $16}' |
+    xargs echo
+  done
 }
 
 export SOYWIKI_VIM=mvim
