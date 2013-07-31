@@ -334,3 +334,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/heroku/bin:$PATH"
 
 eval "$(hub alias -s)"
+
+function dl {
+  cclive --output-dir ~/Downloads -f best $1
+}
