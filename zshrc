@@ -316,6 +316,11 @@ function generate_git_stats {
   done
 }
 
+# cd into whatever is the forefront Finder window.
+cdf() {
+  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+}
+
 export SOYWIKI_VIM=mvim
 alias "update-vim-plugins"="cd ~/.dotfiles && git submodule -q foreach git pull -q origin master"
 fpath=(~/.zsh/Completion $fpath)
