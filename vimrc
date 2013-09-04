@@ -317,6 +317,8 @@ function! OpenChangedFiles()
 endfunction
 command! OpenChangedFiles :call OpenChangedFiles()
 
+nmap <leader><space> :call whitespace#strip_trailing()<CR>
+
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
 nmap <silent> ,7 :nohlsearch<cr>
