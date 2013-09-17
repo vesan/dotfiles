@@ -1,4 +1,50 @@
-" An example for a vimrc file.
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+filetype off " required for vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-abolish'
+Bundle 'milesz/ack'
+Bundle 'vim-scripts/actionscript.vim--Leider'
+Bundle 'epmatsw/ag.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'vim-scripts/IndexedSearch'
+Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/nerdtree'
+Bundle 'adimit/prolog.vim'
+Bundle 'rafaelfranca/rtf_pygmentize'
+Bundle 'vesan/scss-syntax.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'nelstrom/textobj-rubyblock'
+Bundle 'kana/textobj-user'
+Bundle 'tpope/vim-bundler'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-cucumber'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'gmarik/vundle'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'bleything/vim-slidedown'
+Bundle 'tpope/vim-surround'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'skalnik/vim-vroom'
+
+filetype plugin indent on
 
 let mapleader = ","
 
@@ -16,15 +62,11 @@ if !hasmapto('<Plug>MakeGreen')
   map <unique> <silent> <Leader>ö <Plug>MakeGreen
 endif
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " Rock the simple shell instead of ZSH
 set shell=/bin/sh
 
-silent! call pathogen#runtime_append_all_bundles()
-silent! call pathogen#helptags()
+" silent! call pathogen#runtime_append_all_bundles()
+" silent! call pathogen#helptags()
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
