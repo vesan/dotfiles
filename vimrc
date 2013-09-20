@@ -396,6 +396,43 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
   command! PromoteToLet :call PromoteToLet()
   map <leader>p :PromoteToLet<cr>
 
+  let g:rails_projections = {
+          \ "app/uploaders/*_uploader.rb": {
+          \   "command": "uploader",
+          \   "template":
+          \     "class %SUploader < CarrierWave::Uploader::Base\nend",
+          \   "test": [
+          \     "spec/models/%s_uploader_spec.rb",
+          \     "test/unit/%s_uploader_test.rb"
+          \   ],
+          \   "keywords": "process version"
+          \ },
+          \ "features/support/*.rb": {"command": "support"},
+          \ "features/support/env.rb": {"command": "support"}}
+          \ "spec/factories/*_factory.rb": {
+          \   "command": "factory",
+          \   "affinity": "model",
+          \   "related": "app/models/%s.rb",
+          \   "template": "FactoryGirl.define do\n  factory :%s do\n  end\nend"
+          \ },
+          \ "app/presenters/*_presenter.rb": {
+          \   "command": "presenter",
+          \   "affinity": "model",
+          \   "alternate": ["spec/presenters/%s_presenter_spec.rb", "test/presenters/%s_presenter_test.rb"],
+          \   "related": "app/models/%s.rb",
+          \   "template": "class %SPresenter\nend"
+          \ },
+          \ "app/authorizers/*_authorizer.rb": {
+          \   "command": "authorizer",
+          \   "affinity": "model",
+          \   "alternate": ["spec/authorizers/%s_authorizer_spec.rb", "test/authorizers/%s_authorizer_test.rb"],
+          \   "related": "app/models/%s.rb",
+          \   "template": "class %SAuthorizer < ApplicationAuthorizer\nend"
+          \ },
+          \ "config/locales/*fi.yml": { "alternate": "%sen.yml" },
+          \ "config/locales/*en.yml": { "alternate": "%sfi.yml" }
+
+
 " Prolog
   autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
 
