@@ -6,6 +6,8 @@ filetype off " required for vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'gmarik/vundle'
+
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-abolish'
 Bundle 'milesz/ack'
@@ -37,7 +39,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/VimClojure'
-Bundle 'gmarik/vundle'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'bleything/vim-slidedown'
 Bundle 'tpope/vim-surround'
