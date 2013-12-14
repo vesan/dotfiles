@@ -44,6 +44,7 @@ Bundle 'bleything/vim-slidedown'
 Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'skalnik/vim-vroom'
+Bundle 'mustache/vim-mustache-handlebars'
 
 filetype plugin indent on
 
