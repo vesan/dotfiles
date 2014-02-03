@@ -45,6 +45,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'tpope/vim-vinegar'
 
 filetype plugin indent on
 
@@ -450,7 +451,7 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 noremap <leader>å :set paste<CR>:put *<CR>:set nopaste<CR>
 
 noremap + :cn<cr>
-noremap - :cp<cr>
+noremap <C-+> :cp<cr>
 
 " Ack
 " map <leader>s :Ack <c-r><c-w><cr>
