@@ -451,7 +451,7 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 noremap <leader>å :set paste<CR>:put *<CR>:set nopaste<CR>
 
 noremap + :cn<cr>
-noremap <C-+> :cp<cr>
+noremap å :cp<cr>
 
 " Ack
 " map <leader>s :Ack <c-r><c-w><cr>
