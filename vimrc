@@ -440,13 +440,16 @@ map <leader>c :!ruby -I"test" -I"spec" %<CR>
 
 
 " Prolog
-  autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
+autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
 
 " ActionScript
-  autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " CSS
-  autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
+
+" JavaScript
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript
 
 noremap <leader>å :set paste<CR>:put *<CR>:set nopaste<CR>
 
