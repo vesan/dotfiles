@@ -46,6 +46,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'tpope/vim-vinegar'
+Bundle 'tpope/vim-jdaddy'
 
 filetype plugin indent on
 
