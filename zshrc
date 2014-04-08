@@ -316,6 +316,10 @@ function generate_git_stats {
   done
 }
 
+function git_merged_branches {
+  for k in $(git branch -a --merged | grep -v "\->" | sed "s/^..//") ; do echo -e $(git log -1 --pretty=format:"%Cgreen%ci %Cred%cr%Creset" "$k")\\t"$k"; done | sort
+}
+
 # cd into whatever is the forefront Finder window.
 cdf() {
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
@@ -339,7 +343,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/heroku/bin:$PATH"
 
 function dl {
-  cclive --output-dir ~/Downloads -f best $1
+  cclive --output-dir ~/Downloads -s best $1
 }
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
