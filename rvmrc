@@ -1,0 +1,5 @@
+rvm_pretty_print_flag=1
+rvm_archflags="-arch x86_64"
+rvm_configure_env=(CFLAGS="-march=nocona -O2 -pipe") # Only for 64-bit i5 and i7 processors
+rvm_gem_options="--no-rdoc --no-ri"
+rvm_fuzzy_flag=1
