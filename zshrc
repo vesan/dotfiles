@@ -346,5 +346,7 @@ function dl {
   cclive --output-dir ~/Downloads -s best $1
 }
 
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source /opt/boxen/env.sh
