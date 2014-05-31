@@ -347,3 +347,4 @@ function dl {
 }
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source /opt/boxen/env.sh
