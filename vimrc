@@ -50,6 +50,7 @@ Plugin 'tpope/vim-jdaddy'
 
 call vundle#end()
 
+filetype off
 filetype plugin indent on
 
 let mapleader = ","
