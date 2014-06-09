@@ -82,7 +82,8 @@ PROMPT='
 
 RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 
-fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/Completion $fpath)
 
 # http://stackoverflow.com/questions/1642881/how-to-enable-git-file-tab-completion-with-zsh-compinit
 autoload -U compinit
@@ -325,9 +326,12 @@ cdf() {
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
+function dl {
+  cclive --output-dir ~/Downloads -s best $1
+}
+
 export SOYWIKI_VIM=mvim
 alias "update-vim-plugins"="cd ~/.dotfiles && git submodule -q foreach git pull -q origin master"
-fpath=(~/.zsh/Completion $fpath)
 
 # For Scala
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
@@ -342,11 +346,7 @@ export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-function dl {
-  cclive --output-dir ~/Downloads -s best $1
-}
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
-PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source /opt/boxen/env.sh
