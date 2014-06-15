@@ -5,6 +5,8 @@
 # From git distribution, slightly modified to work with zsh
 # source ~/bin/dotfiles/git-completion.zsh
 
+source /opt/boxen/env.sh
+
 __git_ps1 ()
 {
 	local g="$(git rev-parse --git-dir 2>/dev/null)"
@@ -82,6 +84,13 @@ PROMPT='
 
 RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 
+export TERM=xterm-color
+export CLICOLOR=true
+export LSCOLORS=bxfxcxdxbxegedabagacad
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:$HOME/bin:/opt/local/lib/postgresql84/bin:$HOME/code/SDKs/flex_sdk_3.5.0.12683/bin:/usr/local/share/npm/bin:$HOME/.cljr/bin:$PATH"
+export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=(~/.zsh/Completion $fpath)
 
@@ -123,13 +132,6 @@ export VISUAL=vim
 export GEM_OPEN_EDITOR=vim
 export GEM_EDITOR=vim
 export EDITOR=vim
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:$HOME/bin:/opt/local/lib/postgresql84/bin:$HOME/code/SDKs/flex_sdk_3.5.0.12683/bin:/usr/local/share/npm/bin:$HOME/.cljr/bin:$PATH"
-export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
-
-export TERM=xterm-color
-export CLICOLOR=true
-export LSCOLORS=bxfxcxdxbxegedabagacad
 
 # Tell the terminal about the working directory whenever it changes.
 # From: http://superuser.com/questions/313650/resume-zsh-terminal-os-x-lion/328148#328148
@@ -349,4 +351,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source /opt/boxen/env.sh
