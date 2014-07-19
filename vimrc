@@ -47,6 +47,7 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'tommcdo/vim-exchange'
 
 call vundle#end()
 
