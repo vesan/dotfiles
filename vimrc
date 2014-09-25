@@ -48,6 +48,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tommcdo/vim-exchange'
+Plugin 'slim-template/vim-slim'
 
 call vundle#end()
 
