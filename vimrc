@@ -49,6 +49,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'wting/rust.vim'
+Plugin 'slim-template/vim-slim'
 
 call vundle#end()
 
