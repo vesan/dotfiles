@@ -66,6 +66,10 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](doc|tmp)$',
+    \ 'file': '\v\.(exe|so|dll)$'
+    \ }
 
 " To get rid of complaining makegreen
 if !hasmapto('<Plug>MakeGreen')
