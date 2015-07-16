@@ -5,3 +5,4 @@
 doc/tags
 *.sqlite3-journal
 tags
+*.log
