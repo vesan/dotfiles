@@ -332,7 +332,7 @@ function dl {
   cclive --output-dir ~/Downloads -s best $1
 }
 
-export SOYWIKI_VIM=mvim
+export SOYWIKI_VIM=vim
 alias "update-vim-plugins"="cd ~/.dotfiles && git submodule -q foreach git pull -q origin master"
 
 # For Scala
