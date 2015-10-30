@@ -54,6 +54,7 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'wting/rust.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -64,6 +65,9 @@ let mapleader = ","
 
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
+
+" vim-jsx config
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " ctrl-p config
 let g:ctrlp_map = '<leader>t'
