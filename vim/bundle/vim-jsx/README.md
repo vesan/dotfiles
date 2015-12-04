@@ -10,6 +10,30 @@ This bundle requires pangloss's [vim-javascript][2] syntax highlighting.
 Vim support for inline XML in JS is remarkably similar to the same for PHP,
 which you can find [here][3].
 
+Troubleshooting
+---------------
+
+If you're experiencing weird highlighting or indenting throughout your JSX
+code, please file a GitHub issue which includes the following:
+
+- A brief affirmation that you've read the README and installed the appropriate
+  dependencies.
+
+- A minimal ~/.vimrc which repros the issue you're having, as well as a
+  screenshot or gif of the issue (a paste is insufficient, since it doesn't
+  show me the specific highlighting or indenting problem).  To obtain a minimal
+  ~/.vimrc, simply bisect your ~/.vimrc by adding `finish` at various points in
+  the file.  (You can likewise bisect your included plugins by selectively
+  including only half of them, then a quarter, etc.).
+
+Most of the issues filed result from failures to install vim-javascript or
+conflicts with existing JS syntax or indent files---so failing to indicate that
+you've ruled those issues out may result in your issue being closed with no
+comment.
+
+(Please feel free to disregard all this for feature requests and more
+corner-case bugs.)
+
 Usage
 -----
 
@@ -42,6 +66,15 @@ The recommended installation method is via [Pathogen][4].  Then simply execute
     cd ~/.vim/bundle
     git clone https://github.com/mxw/vim-jsx.git
 
+(You can install [vim-javascript][2] in an analogous manner.)
+
+### Vundle
+
+You can also add vim-jsx using [Vundle][5]---just add the following line to
+your .vimrc:
+
+    Bundle 'mxw/vim-jsx'
+
 ### Manual Installation
 
 If you have no `~/.vim/after` directory, you can download the tarball or zip
@@ -61,3 +94,4 @@ or indent files for Javascript, you'll probably want to do something like
 [2]: https://github.com/pangloss/vim-javascript "pangloss: vim-javascript"
 [3]: https://github.com/mxw/vim-xhp             "mxw: vim-xhp"
 [4]: https://github.com/tpope/vim-pathogen      "tpope: vim-pathogen"
+[5]: https://github.com/gmarik/vundle           "gmarik: vundle"

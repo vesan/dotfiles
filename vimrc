@@ -33,6 +33,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-bundler'
 
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 Plugin 'vim-scripts/actionscript.vim--Leider'
 Plugin 'tpope/vim-markdown'
 Plugin 'adimit/prolog.vim'
@@ -53,8 +55,6 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'wting/rust.vim'
 Plugin 'slim-template/vim-slim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
