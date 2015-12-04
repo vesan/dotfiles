@@ -56,6 +56,9 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'wting/rust.vim'
 Plugin 'slim-template/vim-slim'
 
+Plugin 'tpope/vim-eunuch'
+Plugin 'AndrewRadev/splitjoin.vim'
+
 call vundle#end()
 
 filetype off
