@@ -5,7 +5,9 @@
 # From git distribution, slightly modified to work with zsh
 # source ~/bin/dotfiles/git-completion.zsh
 
-source /opt/boxen/env.sh
+if [ -f /opt/boxen/env.sh ]; then
+  source /opt/boxen/env.sh
+fi
 
 __git_ps1 ()
 {
@@ -181,7 +183,7 @@ alias -g 'grep'='grep -n --colour'
 alias sr='script/rails'
 
 ss () {
-  if [ -f ./script/rails ]; then 
+  if [ -f ./script/rails ]; then
     ./script/rails server $argv
   else
     ./script/server $argv
@@ -190,7 +192,7 @@ ss () {
 
 # alias sc='script/console'
 sc () {
-  if [ -f ./script/rails ]; then 
+  if [ -f ./script/rails ]; then
     ./script/rails console $argv
   else
     ./script/console $argv
@@ -201,7 +203,7 @@ amacs () {
   # Create the files as needed -- not as good as raw emacs, but acceptable
   for f in "$@"
   do
-	  test -e $f || touch $f
+    test -e $f || touch $f
   done
   open -a /Applications/Aquamacs\ Emacs.app "$@"
 }
@@ -210,7 +212,7 @@ em () {
   # Create the files as needed -- not as good as raw emacs, but acceptable
   for f in "$@"
   do
-	  test -e $f || touch $f
+    test -e $f || touch $f
   done
   open -a /Applications/Emacs.app "$@"
 }
@@ -228,18 +230,18 @@ function tab {
     tell application \"Terminal\" to do script \"cd $PWD\" in selected tab of the front window
   " > /dev/null 2>&1
 }
- 
+
 function as_terminal_cmd {
-  osascript -e "tell application \"Terminal\" to do script \"$1\" in selected tab of the front window" 
+  osascript -e "tell application \"Terminal\" to do script \"$1\" in selected tab of the front window"
 }
- 
+
 function terminal_title {
   if [[ $# -eq 1 && -n "$@" ]];
   then
     printf "\e]0;${@}\a";
   fi
 }
- 
+
 # cd into a rails dir, start mvim and rails console
 function r {
   # cd $1
@@ -273,7 +275,7 @@ alias 'rake?'="rake -T | grep $1"
 alias datafart='curl --data-binary @- datafart.com'
 
 function calculator() {
-	bc -ql <<< "$@"|perl -pe 's/(\.[^0]+)0+$|\.0+$/$1/'
+  bc -ql <<< "$@"|perl -pe 's/(\.[^0]+)0+$|\.0+$/$1/'
 }
 alias '?=calculator'
 
@@ -282,7 +284,7 @@ bindkey "^[[3~" delete-char
 
 # completions
 source $HOME/.zsh/_gem.zsh
-source $HOME/.zsh/_rake_completion.zsh
+# source $HOME/.zsh/_rake_completion.zsh
 
 # code reading tools
 
@@ -350,7 +352,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [ -f $HOME/.rvm/bin ]; then
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
 
 # added by travis gem
 [ -f /Users/vesan/.travis/travis.sh ] && source /Users/vesan/.travis/travis.sh
