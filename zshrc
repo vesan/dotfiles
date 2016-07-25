@@ -367,3 +367,7 @@ fi
 
 # Android development
 export ANDROID_HOME=/opt/boxen/homebrew/opt/android-sdk
+
+if hash nodenv 2>/dev/null; then
+  eval "$(nodenv init -)"
+fi
