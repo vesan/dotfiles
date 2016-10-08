@@ -8,7 +8,7 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'scrooloose/nerdtree'
