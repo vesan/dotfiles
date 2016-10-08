@@ -77,6 +77,10 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](tmp|node_modules)$',
     \ 'file': '\v\.(exe|so|dll)$'
     \ }
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
+  let g:ctrlp_use_caching = 0
+endif
 
 " To get rid of complaining makegreen
 if !hasmapto('<Plug>MakeGreen')
