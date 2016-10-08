@@ -361,6 +361,16 @@ vmap <C-Down> ]egv
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :e %%
 
+function! StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'))
@@ -383,7 +393,7 @@ function! OpenChangedFiles()
 endfunction
 command! OpenChangedFiles :call OpenChangedFiles()
 
-nmap <leader><space> :call whitespace#strip_trailing()<CR>
+nmap <leader><space> :call StripTrailingWhitespace()<CR>
 
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
