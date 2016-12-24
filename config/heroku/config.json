@@ -1,3 +1,4 @@
 {
-  "skip_analytics": true
+  "skip_analytics": false,
+  "color": true
 }
