@@ -12,7 +12,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'scrooloose/nerdtree'
-Plug 'msanders/snipmate.vim'
+
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/taglist.vim'
