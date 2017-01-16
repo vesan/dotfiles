@@ -22,10 +22,12 @@ rescue LoadError
   # didn't work? we'll do it ourself
   candidates = []
 
-  ENV["GEM_PATH"].split(":").map {|p| p + "/gems" }.each do |path|
-    Dir.glob(path + "/*").each do |entry|
-      if File.directory?(entry) && File.basename(entry).start_with?(gemname)
-        candidates << entry
+  if ENV["GEM_PATH"]
+    ENV["GEM_PATH"].split(":").map {|p| p + "/gems" }.each do |path|
+      Dir.glob(path + "/*").each do |entry|
+        if File.directory?(entry) && File.basename(entry).start_with?(gemname)
+          candidates << entry
+        end
       end
     end
   end
