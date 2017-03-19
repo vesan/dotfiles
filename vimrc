@@ -32,10 +32,13 @@ Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-bundler'
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+
 Plug 'vim-scripts/actionscript.vim--Leider'
 Plug 'tpope/vim-markdown'
 Plug 'adimit/prolog.vim'
