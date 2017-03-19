@@ -69,6 +69,8 @@ call plug#end()
 filetype off
 filetype plugin indent on
 
+set omnifunc=syntaxcomplete#Complete
+
 let mapleader = ","
 
 " Don't load PeepOpen
@@ -547,3 +549,8 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" Format JS files using gq
+autocmd FileType javascript set formatprg=prettier\ --stdin
+
+" JS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
