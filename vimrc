@@ -488,6 +488,9 @@ autocmd BufNewFile,BufRead ~/code/prolog/*.pl set filetype=prolog
 " ActionScript
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
+" Markdown
+autocmd BufNewFile,BufRead *.suits set filetype=markdown
+
 " CSS
 autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
 
