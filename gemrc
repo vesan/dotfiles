@@ -2,8 +2,6 @@
 :verbose: true
 :backtrace: false
 :benchmark: false
-:sources: 
-- http://production.s3.rubygems.org/
 :update_sources: true
 gem: --no-ri --no-rdoc
 rdoc: --line-numbers --format=darkfish
