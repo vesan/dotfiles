@@ -67,6 +67,10 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'w0rp/ale'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+
 call plug#end()
 
 filetype off
@@ -579,4 +583,12 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 let g:vimwiki_list = [{'path': '~/Dropbox/Notes',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" prettier
+
+let g:prettier#config#trailing_comma = 'es5'
+let g:prettier#quickfix_enabled = 1
+let g:prettier#autoformat = 0
+let g:prettier#config#single_quote = 'false'
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
