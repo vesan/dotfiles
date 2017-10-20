@@ -1,6 +1,40 @@
+" vim-prettier: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
+"
+" Script Info  {{{
+"==========================================================================================================
+" Name Of File: prettier.vim
+"  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
+"   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
+"      Version: 0.2.4
+"        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
+"
+"==========================================================================================================
+" }}}
+
 let s:root_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let s:prettier_job_running = 0
 let s:prettier_quickfix_open = 0
+
+function! prettier#PrettierCliPath() abort
+  let l:execCmd = s:Get_Prettier_Exec()
+
+  if l:execCmd != -1
+    echom l:execCmd
+  else
+    call s:Suggest_Install_Prettier()
+  endif
+endfunction
+
+function! prettier#PrettierCli(user_input) abort
+  let l:execCmd = s:Get_Prettier_Exec()
+
+  if l:execCmd != -1
+    let l:out = system(l:execCmd. ' ' . a:user_input)
+    echom l:out
+  else
+    call s:Suggest_Install_Prettier()
+  endif
+endfunction
 
 function! prettier#Prettier(...) abort
   let l:execCmd = s:Get_Prettier_Exec()
@@ -85,22 +119,26 @@ function! s:Prettier_Exec_Async(cmd, startSelection, endSelection) abort
     let l:async_cmd = 'cmd.exe /c ' . a:cmd
   endif
 
+  let l:bufferName = bufname('%')
+
   if s:prettier_job_running != 1
       let s:prettier_job_running = 1
       call job_start(l:async_cmd, {
         \ 'in_io': 'buffer',
         \ 'in_top': a:startSelection,
         \ 'in_bot': a:endSelection,
-        \ 'in_name': bufname('%'),
+        \ 'in_name': l:bufferName,
         \ 'err_cb': {channel, msg -> s:Prettier_Job_Error(msg)},
-        \ 'close_cb': {channel -> s:Prettier_Job_Close(channel, a:startSelection, a:endSelection)}})
+        \ 'close_cb': {channel -> s:Prettier_Job_Close(channel, a:startSelection, a:endSelection, l:bufferName)}})
   endif
 endfunction
 
-function! s:Prettier_Job_Close(channel, startSelection, endSelection) abort
+function! s:Prettier_Job_Close(channel, startSelection, endSelection, bufferName) abort
   let l:out = []
+  let l:currentBufferName = bufname('%')
+  let l:isInsideAnotherBuffer = a:bufferName != l:currentBufferName ? 1 : 0
 
-  while ch_status(a:channel, {'part': 'out'}) == 'buffered'
+  while ch_status(a:channel) ==# 'buffered'
     call add(l:out, ch_read(a:channel))
   endwhile
 
@@ -111,10 +149,35 @@ function! s:Prettier_Job_Close(channel, startSelection, endSelection) abort
   endif
 
   if len(l:out)
-    call s:Apply_Prettier_Format(l:out, a:startSelection, a:endSelection)
-    write
-    let s:prettier_job_running = 0
+      " This is required due to race condition when user quickly switch buffers while the async
+      " cli has not finished running, vim 8.0.1039 has introduced setbufline() which can be used
+      " to fix this issue in a cleaner way, however since we still need to support older vim versions
+      " we will apply a more generic solution
+      if (l:isInsideAnotherBuffer)
+        if (bufloaded(str2nr(a:bufferName)))
+          try
+            silent exec "sp ". escape(bufname(bufnr(a:bufferName)), ' \')
+            call s:Prettier_Format_And_Save(l:out, a:startSelection, a:endSelection)
+          catch
+            echohl WarningMsg | echom 'Prettier: failed to parse buffer: ' . a:bufferName | echohl NONE
+          finally
+            " we should then hide this buffer again
+            if a:bufferName == bufname('%')
+              silent hide
+            endif
+          endtry
+        endif
+      else
+        call s:Prettier_Format_And_Save(l:out, a:startSelection, a:endSelection)
+      endif
+
+      let s:prettier_job_running = 0
   endif
+endfunction
+
+function! s:Prettier_Format_And_Save(lines, start, end) abort
+  call s:Apply_Prettier_Format(a:lines, a:start, a:end)
+  write
 endfunction
 
 function! s:Prettier_Job_Error(msg) abort
@@ -190,16 +253,26 @@ function! s:Get_Prettier_Exec_Args(config) abort
           \ get(a:config, 'trailingComma', g:prettier#config#trailing_comma) .
           \ ' --parser ' .
           \ get(a:config, 'parser', g:prettier#config#parser) .
+          \ ' --config-precedence ' .
+          \ get(a:config, 'configPrecedence', g:prettier#config#config_precedence) .
+          \ ' --stdin-filepath ' .
+          \ simplify(expand("%:p")) .
           \ ' --stdin '
-  return cmd
+  return l:cmd
 endfunction
 
 " By default we will search for the following
+" => user defined prettier cli path from vim configuration file
 " => locally installed prettier inside node_modules on any parent folder
 " => globally installed prettier
 " => vim-prettier prettier installation
 " => if all fails suggest install
 function! s:Get_Prettier_Exec() abort
+  let l:user_defined_exec_path = fnamemodify(g:prettier#exec_cmd_path, ':p')
+  if executable(l:user_defined_exec_path)
+    return l:user_defined_exec_path
+  endif
+
   let l:local_exec = s:Get_Prettier_Local_Exec()
   if executable(l:local_exec)
     return l:local_exec
@@ -235,7 +308,7 @@ function! s:Get_Exec(...) abort
   let l:exec = -1
 
   if isdirectory(l:rootDir)
-    let l:dir = s:Tranverse_Dir_Search(l:rootDir)
+    let l:dir = s:Traverse_Dir_Search(l:rootDir)
     if dir != -1
       let l:exec = s:Get_Path_To_Exec(l:dir)
     endif
@@ -252,7 +325,7 @@ function! s:Get_Path_To_Exec(...) abort
   return dir . 'prettier'
 endfunction
 
-function! s:Tranverse_Dir_Search(rootDir) abort
+function! s:Traverse_Dir_Search(rootDir) abort
   let l:root = a:rootDir
   let l:dir = 'node_modules'
 

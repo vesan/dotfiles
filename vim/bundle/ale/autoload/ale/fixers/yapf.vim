@@ -11,16 +11,16 @@ function! ale#fixers#yapf#Fix(buffer) abort
     \   ['yapf'],
     \)
 
-    if !executable(l:executable)
+    if !ale#python#IsExecutable(l:executable)
         return 0
     endif
 
     let l:config = ale#path#FindNearestFile(a:buffer, '.style.yapf')
     let l:config_options = !empty(l:config)
-    \   ? ' --style ' . ale#Escape(l:config)
+    \   ? ' --no-local-style --style ' . ale#Escape(l:config)
     \   : ''
 
     return {
-    \   'command': ale#Escape(l:executable) . ' --no-local-style' . l:config_options,
+    \   'command': ale#Escape(l:executable) . l:config_options,
     \}
 endfunction

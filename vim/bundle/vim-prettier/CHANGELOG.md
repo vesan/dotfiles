@@ -1,8 +1,92 @@
 # Change Log
 
-## [Unreleased](https://github.com/prettier/vim-prettier/tree/HEAD)
+## [0.2.4](https://github.com/prettier/vim-prettier/tree/0.2.4) (2017-10-20)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.2.3...0.2.4)
 
-[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.0.14...HEAD)
+**Implemented enhancements:**
+
+- No references to getting help or support [\#67](https://github.com/prettier/vim-prettier/issues/67)
+
+**Fixed bugs:**
+
+- Incorrect resolving of prettier config [\#71](https://github.com/prettier/vim-prettier/issues/71)
+
+**Closed issues:**
+
+- SyntaxError: Unexpected token [\#69](https://github.com/prettier/vim-prettier/issues/69)
+
+**Merged pull requests:**
+
+- Fixing bug where config was not being correctly loaded based on file [\#72](https://github.com/prettier/vim-prettier/pull/72) ([mitermayer](https://github.com/mitermayer))
+- Including extra information on the autoload header and doc header [\#70](https://github.com/prettier/vim-prettier/pull/70) ([mitermayer](https://github.com/mitermayer))
+- adding suppor for vim8 versions older than 8.0.0015 to use async job API [\#66](https://github.com/prettier/vim-prettier/pull/66) ([mitermayer](https://github.com/mitermayer))
+
+## [0.2.3](https://github.com/prettier/vim-prettier/tree/0.2.3) (2017-10-08)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.2.2...0.2.3)
+
+**Merged pull requests:**
+
+- Making sure we can still save the results of last prettier async run on [\#65](https://github.com/prettier/vim-prettier/pull/65) ([mitermayer](https://github.com/mitermayer))
+
+## [0.2.2](https://github.com/prettier/vim-prettier/tree/0.2.2) (2017-10-07)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.2.1...0.2.2)
+
+**Merged pull requests:**
+
+- bugfix: Fixing auto command params to use extensions instead of magic [\#64](https://github.com/prettier/vim-prettier/pull/64) ([mitermayer](https://github.com/mitermayer))
+
+## [0.2.1](https://github.com/prettier/vim-prettier/tree/0.2.1) (2017-10-07)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.2.0...0.2.1)
+
+**Fixed bugs:**
+
+- Overwrites Buffer1 with contents of Buffer2 [\#62](https://github.com/prettier/vim-prettier/issues/62)
+- Confused by file type overrides [\#60](https://github.com/prettier/vim-prettier/issues/60)
+
+**Merged pull requests:**
+
+- bugfix: fixing race condition incorrect buffer formating [\#63](https://github.com/prettier/vim-prettier/pull/63) ([mitermayer](https://github.com/mitermayer))
+- bug: Fixing config overwrite value for non js by levaraging --stdin-f… [\#61](https://github.com/prettier/vim-prettier/pull/61) ([mitermayer](https://github.com/mitermayer))
+
+## [0.2.0](https://github.com/prettier/vim-prettier/tree/0.2.0) (2017-10-04)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.1.3...0.2.0)
+
+**Fixed bugs:**
+
+- `--parser` with value `postcss` is deprecated [\#59](https://github.com/prettier/vim-prettier/issues/59)
+
+## [0.1.3](https://github.com/prettier/vim-prettier/tree/0.1.3) (2017-09-30)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.1.2...0.1.3)
+
+## [0.1.2](https://github.com/prettier/vim-prettier/tree/0.1.2) (2017-09-26)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.1.1...0.1.2)
+
+**Implemented enhancements:**
+
+- Allow configuration to set lookup path for `prettier` cli on `.vimrc` [\#56](https://github.com/prettier/vim-prettier/issues/56)
+
+**Merged pull requests:**
+
+- issue/56 - Allowing user path overwrite configuration [\#57](https://github.com/prettier/vim-prettier/pull/57) ([mitermayer](https://github.com/mitermayer))
+- Fixed some typos in the README [\#55](https://github.com/prettier/vim-prettier/pull/55) ([Haegin](https://github.com/Haegin))
+- feature: Adding more commands [\#54](https://github.com/prettier/vim-prettier/pull/54) ([mitermayer](https://github.com/mitermayer))
+
+## [0.1.1](https://github.com/prettier/vim-prettier/tree/0.1.1) (2017-09-18)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.1.0...0.1.1)
+
+**Implemented enhancements:**
+
+- Upgrade to support prettier 1.6 [\#51](https://github.com/prettier/vim-prettier/issues/51)
+
+## [0.1.0](https://github.com/prettier/vim-prettier/tree/0.1.0) (2017-09-14)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.0.15...0.1.0)
+
+**Merged pull requests:**
+
+- Issue/51 adding support for prettier 1.7 [\#52](https://github.com/prettier/vim-prettier/pull/52) ([mitermayer](https://github.com/mitermayer))
+
+## [0.0.15](https://github.com/prettier/vim-prettier/tree/0.0.15) (2017-08-30)
+[Full Changelog](https://github.com/prettier/vim-prettier/compare/0.0.14...0.0.15)
 
 **Fixed bugs:**
 

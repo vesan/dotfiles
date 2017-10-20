@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 0.0.15
+"      Version: 0.2.4
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -19,6 +19,9 @@ let g:loaded_prettier = 1
 " => Plugin config
 " autoformating enabled by default upon saving
 let g:prettier#autoformat = get(g:, 'prettier#autoformat', 1)
+
+" path to prettier cli
+let g:prettier#exec_cmd_path = get(g:, 'prettier#exec_cmd_path', 0)
 
 " calling :Prettier by default runs synchronous
 let g:prettier#exec_cmd_async = get(g:, 'prettier#exec_cmd_async', 0)
@@ -54,11 +57,26 @@ let g:prettier#config#trailing_comma = get(g:,'prettier#config#trailing_comma', 
 " flow|babylon|typescript|postcss|json|graphql
 let g:prettier#config#parser = get(g:,'prettier#config#parser', 'flow')
 
+" cli-override|file-override|prefer-file
+let g:prettier#config#config_precedence = get(g:, 'prettier#config#config_precedence', 'prefer-file')
+
 " synchronous by default
 command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_async, <line1>, <line2>)
 
 " prettier async
 command! -nargs=? -range=% PrettierAsync call prettier#Prettier(1, <line1>, <line2>)
+
+" prints vim-prettier version
+command! -nargs=? -range=% PrettierVersion echom '0.2.4'
+
+" call prettier cli
+command! -nargs=? -range=% PrettierCli call prettier#PrettierCli(<q-args>)
+
+" call prettier cli to get its version
+command! -nargs=? -range=% PrettierCliVersion call prettier#PrettierCli('--version')
+
+" prints prettier resolved cli path
+command! -nargs=? -range=% PrettierCliPath call prettier#PrettierCliPath()
 
 " map command
 if !hasmapto('<Plug>(Prettier)') && maparg('<Leader>p', 'n') ==# ''
@@ -66,3 +84,7 @@ if !hasmapto('<Plug>(Prettier)') && maparg('<Leader>p', 'n') ==# ''
 endif
 nnoremap <silent> <Plug>(Prettier) :Prettier<CR>
 nnoremap <silent> <Plug>(PrettierAsync) :PrettierAsync<CR>
+nnoremap <silent> <Plug>(PrettierVersion) :PrettierVersion<CR>
+nnoremap <silent> <Plug>(PrettierCli) :PrettierCli<CR>
+nnoremap <silent> <Plug>(PrettierCliVersion) :PrettierCliVersion<CR>
+nnoremap <silent> <Plug>(PrettierCliPath) :PrettierCliPath<CR>
