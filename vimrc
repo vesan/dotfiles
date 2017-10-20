@@ -63,6 +63,7 @@ Plug 'lambdatoast/elm.vim'
 
 Plug 'tpope/vim-eunuch'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -557,3 +558,9 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 
 " JS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" Vimwiki
+
+let g:vimwiki_list = [{'path': '~/Dropbox/Notes',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
+
