@@ -65,14 +65,30 @@ Plug 'tpope/vim-eunuch'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vimwiki/vimwiki'
 
+Plug 'w0rp/ale'
+
 call plug#end()
 
 filetype off
+
+let &runtimepath.=',~/.vim/bundle/ale'
+
 filetype plugin indent on
 
 set omnifunc=syntaxcomplete#Complete
 
 let mapleader = ","
+
+" ale
+
+let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+\   'javascript': [
+\       'eslint',
+\       'prettier_eslint'
+\   ]
+\}
 
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
