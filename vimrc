@@ -71,6 +71,8 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
+Plug 'posva/vim-vue'
+
 call plug#end()
 
 filetype off
