@@ -73,6 +73,9 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'posva/vim-vue'
 
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+
 call plug#end()
 
 filetype off
@@ -93,6 +96,14 @@ let g:ale_fixers = {
 \   'javascript': [
 \       'eslint',
 \       'prettier_eslint'
+\   ]
+\}
+
+let g:ale_linters = {
+\   'typescript': [
+\       'tslint',
+\       'tsserver',
+\       'typecheck'
 \   ]
 \}
 
