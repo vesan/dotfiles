@@ -107,6 +107,11 @@ let g:ale_linters = {
 \   ]
 \}
 
+" tsuquyomi
+
+autocmd FileType typescript nmap <buffer> <Leader>i : <C-u>echo tsuquyomi#hint()<CR>
+" let g:tsuquyomi_disable_quickfix = 1
+
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
 
