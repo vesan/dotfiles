@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 0.2.4
+"      Version: 0.2.6
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -46,7 +46,7 @@ function! prettier#Prettier(...) abort
   if l:execCmd != -1
     let l:cmd = l:execCmd . s:Get_Prettier_Exec_Args(l:config)
 
-    " close quickfix if it is opened 
+    " close quickfix if it is opened
     if s:prettier_quickfix_open
       call setqflist([])
       cclose
@@ -55,12 +55,57 @@ function! prettier#Prettier(...) abort
 
     if l:async && v:version >= 800 && exists('*job_start')
       call s:Prettier_Exec_Async(l:cmd, l:startSelection, l:endSelection)
+    elseif l:async && has('nvim') && g:prettier#nvim_unstable_async
+      call s:Prettier_Exec_Async_Nvim(l:cmd, l:startSelection, l:endSelection)
     else
       call s:Prettier_Exec_Sync(l:cmd, l:startSelection, l:endSelection)
     endif
   else
     call s:Suggest_Install_Prettier()
   endif
+endfunction
+
+function! s:Prettier_Exec_Async_Nvim(cmd, startSelection, endSelection) abort
+  let l:async_cmd = a:cmd
+
+  if has('win32') || has('win64')
+    let l:async_cmd = 'cmd.exe /c ' . a:cmd
+  endif
+
+  let l:lines = getline(a:startSelection, a:endSelection)
+  let l:dict = {
+        \ 'start': a:startSelection - 1,
+        \ 'end': a:endSelection,
+        \ 'buf_nr': bufnr('%'),
+        \ 'content': join(l:lines, "\n"),
+        \}
+  let l:out = []
+  let l:err = []
+
+  let l:job = jobstart([&shell, &shellcmdflag, l:async_cmd], {
+    \ 'on_stdout': {job_id, data, event -> extend(l:out, data)},
+    \ 'on_stderr': {job_id, data, event -> extend(l:err, data)},
+    \ 'on_exit': {job_id, status, event -> s:Prettier_Job_Nvim_Exit(status, l:dict, l:out, l:err)},
+    \ })
+  call jobsend(l:job, l:lines)
+  call jobclose(l:job, 'stdin')
+endfunction
+
+function! s:Prettier_Job_Nvim_Exit(status, info, out, err) abort
+  if a:status != 0
+    echoerr join(a:err, "\n")
+    return
+  endif
+  if len(a:out) == 0 | return | endif
+
+  let l:last = a:out[len(a:out) - 1]
+  let l:out = l:last ==? '' ? a:out[0:len(a:out) - 2] : a:out
+  if a:info.content == join(l:out, "\n")
+    " no change
+    return
+  endif
+
+  call nvim_buf_set_lines(a:info.buf_nr, a:info.start, a:info.end, 0, l:out)
 endfunction
 
 function! prettier#Autoformat(...) abort
@@ -82,7 +127,7 @@ function! prettier#Autoformat(...) abort
   endif
 
   " Restore the selection and if greater then before it defaults to end
-  call cursor(curPos[1], curPos[2])
+  call cursor(l:curPos[1], l:curPos[2])
 
   " Restore view
   call winrestview(l:winview)
@@ -123,7 +168,7 @@ function! s:Prettier_Exec_Async(cmd, startSelection, endSelection) abort
 
   if s:prettier_job_running != 1
       let s:prettier_job_running = 1
-      call job_start(l:async_cmd, {
+      call job_start([&shell, &shellcmdflag, l:async_cmd], {
         \ 'in_io': 'buffer',
         \ 'in_top': a:startSelection,
         \ 'in_bot': a:endSelection,
@@ -156,7 +201,7 @@ function! s:Prettier_Job_Close(channel, startSelection, endSelection, bufferName
       if (l:isInsideAnotherBuffer)
         if (bufloaded(str2nr(a:bufferName)))
           try
-            silent exec "sp ". escape(bufname(bufnr(a:bufferName)), ' \')
+            silent exec 'sp '. escape(bufname(bufnr(a:bufferName)), ' \')
             call s:Prettier_Format_And_Save(l:out, a:startSelection, a:endSelection)
           catch
             echohl WarningMsg | echom 'Prettier: failed to parse buffer: ' . a:bufferName | echohl NONE
@@ -188,15 +233,17 @@ endfunction
 function! s:Handle_Parsing_Errors(out) abort
   let l:errors = []
 
-  for line in a:out
+  for l:line in a:out
     " matches:
+    " file.ext: SyntaxError: Unexpected token (2:8)sd
     " stdin: SyntaxError: Unexpected token (2:8)
-    let l:match = matchlist(line, '^stdin: \(.*\) (\(\d\{1,}\):\(\d\{1,}\)*)')
+    " [error] file.ext: SyntaxError: Unexpected token (2:8)
+    let l:match = matchlist(l:line, '^.*: \(.*\) (\(\d\{1,}\):\(\d\{1,}\)*)')
     if !empty(l:match)
       call add(l:errors, { 'bufnr': bufnr('%'),
-                         \ 'text': match[1],
-                         \ 'lnum': match[2],
-                         \ 'col': match[3] })
+                         \ 'text': l:match[1],
+                         \ 'lnum': l:match[2],
+                         \ 'col': l:match[3] })
     endif
   endfor
 
@@ -219,6 +266,11 @@ function! s:Apply_Prettier_Format(lines, startSelection, endSelection) abort
   " store view
   let l:winview = winsaveview()
   let l:newBuffer = s:Get_New_Buffer(a:lines, a:startSelection, a:endSelection)
+
+  " we should not replace contents if the newBuffer is empty
+  if empty(l:newBuffer)
+    return
+  endif
 
   " delete all lines on the current buffer
   silent! execute len(l:newBuffer) . ',' . line('$') . 'delete _'
@@ -249,14 +301,20 @@ function! s:Get_Prettier_Exec_Args(config) abort
           \ get(a:config, 'bracketSpacing', g:prettier#config#bracket_spacing) .
           \ ' --jsx-bracket-same-line ' .
           \ get(a:config, 'jsxBracketSameLine', g:prettier#config#jsx_bracket_same_line) .
+          \ ' --arrow-parens ' .
+          \ get(a:config, 'arrowParens', g:prettier#config#arrow_parens) .
           \ ' --trailing-comma ' .
           \ get(a:config, 'trailingComma', g:prettier#config#trailing_comma) .
           \ ' --parser ' .
           \ get(a:config, 'parser', g:prettier#config#parser) .
           \ ' --config-precedence ' .
           \ get(a:config, 'configPrecedence', g:prettier#config#config_precedence) .
+          \ ' --prose-wrap ' .
+          \ get(a:config, 'proseWrap', g:prettier#config#prose_wrap) .
           \ ' --stdin-filepath ' .
-          \ simplify(expand("%:p")) .
+          \ simplify(expand('%:p')) .
+          \ ' --no-editorconfig '.
+          \ ' --loglevel error '.
           \ ' --stdin '
   return l:cmd
 endfunction
@@ -275,17 +333,17 @@ function! s:Get_Prettier_Exec() abort
 
   let l:local_exec = s:Get_Prettier_Local_Exec()
   if executable(l:local_exec)
-    return l:local_exec
+    return fnameescape(l:local_exec)
   endif
 
   let l:global_exec = s:Get_Prettier_Global_Exec()
   if executable(l:global_exec)
-    return l:global_exec
+    return fnameescape(l:global_exec)
   endif
 
   let l:plugin_exec = s:Get_Prettier_Plugin_Exec()
   if executable(l:plugin_exec)
-    return l:plugin_exec
+    return fnameescape(l:plugin_exec)
   endif
 
   return -1
@@ -309,20 +367,20 @@ function! s:Get_Exec(...) abort
 
   if isdirectory(l:rootDir)
     let l:dir = s:Traverse_Dir_Search(l:rootDir)
-    if dir != -1
+    if l:dir != -1
       let l:exec = s:Get_Path_To_Exec(l:dir)
     endif
   else
     let l:exec = s:Get_Path_To_Exec()
   endif
 
-  return exec
+  return l:exec
 endfunction
 
 function! s:Get_Path_To_Exec(...) abort
   let l:rootDir = a:0 > 0 ? a:1 : -1
   let l:dir = l:rootDir != -1 ? l:rootDir . '/.bin/' : ''
-  return dir . 'prettier'
+  return l:dir . 'prettier'
 endfunction
 
 function! s:Traverse_Dir_Search(rootDir) abort
@@ -330,12 +388,12 @@ function! s:Traverse_Dir_Search(rootDir) abort
   let l:dir = 'node_modules'
 
   while 1
-    let l:search_dir = root . '/' . dir
+    let l:search_dir = l:root . '/' . l:dir
     if isdirectory(l:search_dir)
       return l:search_dir
     endif
 
-    let l:parent = fnamemodify(root, ':h')
+    let l:parent = fnamemodify(l:root, ':h')
     if l:parent == l:root
       return -1
     endif

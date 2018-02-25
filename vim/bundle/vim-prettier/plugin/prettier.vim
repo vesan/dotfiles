@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 0.2.4
+"      Version: 0.2.6
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -19,6 +19,9 @@ let g:loaded_prettier = 1
 " => Plugin config
 " autoformating enabled by default upon saving
 let g:prettier#autoformat = get(g:, 'prettier#autoformat', 1)
+
+" experimental async flag will be disabled by default until is stable
+let g:prettier#nvim_unstable_async = get(g:,'prettier#nvim_unstable_async', 0)
 
 " path to prettier cli
 let g:prettier#exec_cmd_path = get(g:, 'prettier#exec_cmd_path', 0)
@@ -51,6 +54,9 @@ let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing'
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = get(g:,'prettier#config#jsx_bracket_same_line', 'true')
 
+" avoid wrapping a single arrow function param in parens
+let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'avoid')
+
 " none|es5|all
 let g:prettier#config#trailing_comma = get(g:,'prettier#config#trailing_comma', 'all')
 
@@ -60,6 +66,9 @@ let g:prettier#config#parser = get(g:,'prettier#config#parser', 'flow')
 " cli-override|file-override|prefer-file
 let g:prettier#config#config_precedence = get(g:, 'prettier#config#config_precedence', 'prefer-file')
 
+" always|never|preserve
+let g:prettier#config#prose_wrap = get(g:, 'prettier#config#prose_wrap', 'preserve')
+
 " synchronous by default
 command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_async, <line1>, <line2>)
 
@@ -67,7 +76,7 @@ command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_a
 command! -nargs=? -range=% PrettierAsync call prettier#Prettier(1, <line1>, <line2>)
 
 " prints vim-prettier version
-command! -nargs=? -range=% PrettierVersion echom '0.2.4'
+command! -nargs=? -range=% PrettierVersion echom '0.2.6'
 
 " call prettier cli
 command! -nargs=? -range=% PrettierCli call prettier#PrettierCli(<q-args>)
