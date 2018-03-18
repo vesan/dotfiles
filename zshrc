@@ -5,9 +5,10 @@
 # From git distribution, slightly modified to work with zsh
 # source ~/bin/dotfiles/git-completion.zsh
 
-if [ -f /opt/boxen/env.sh ]; then
-  source /opt/boxen/env.sh
-fi
+export LC_ALL="fi_FI.UTF-8"
+export LANG="fi_FI.UTF-8"
+
+export PATH="$PATH:/usr/local/bin"
 
 __git_ps1 ()
 {
@@ -89,9 +90,6 @@ RPROMPT="$(print '%{\e[1;30m%}%B[%{\e[1;34m%}%*%{\e[1;30m%}]%b%{\e[0m%}')"
 export TERM=xterm-color
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Applications/Shoes.app/Contents/MacOS:$HOME/bin:/opt/local/lib/postgresql84/bin:$HOME/code/SDKs/flex_sdk_3.5.0.12683/bin:/usr/local/share/npm/bin:$HOME/.cljr/bin:$PATH"
-export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=(~/.zsh/Completion $fpath)
@@ -183,7 +181,7 @@ alias -g 'grep'='grep -n --colour'
 alias sr='script/rails'
 
 ss () {
-  if [ -f ./script/rails ]; then
+  if [ -f ./script/rails ]; then 
     ./script/rails server $argv
   else
     ./script/server $argv
@@ -192,7 +190,7 @@ ss () {
 
 # alias sc='script/console'
 sc () {
-  if [ -f ./script/rails ]; then
+  if [ -f ./script/rails ]; then 
     ./script/rails console $argv
   else
     ./script/console $argv
@@ -203,7 +201,7 @@ amacs () {
   # Create the files as needed -- not as good as raw emacs, but acceptable
   for f in "$@"
   do
-    test -e $f || touch $f
+	  test -e $f || touch $f
   done
   open -a /Applications/Aquamacs\ Emacs.app "$@"
 }
@@ -212,7 +210,7 @@ em () {
   # Create the files as needed -- not as good as raw emacs, but acceptable
   for f in "$@"
   do
-    test -e $f || touch $f
+	  test -e $f || touch $f
   done
   open -a /Applications/Emacs.app "$@"
 }
@@ -222,6 +220,8 @@ alias remigrate="bundle exec rake db:migrate db:migrate:redo db:schema:dump db:t
 
 alias huh="git diff HEAD | vim"
 alias start-postgres="sudo su postgres -c '/opt/local/lib/postgresql84/bin/postgres -D /opt/local/var/db/postgresql84/defaultdb &'"
+
+alias gt="git rev-parse --show-toplevel | xargs gittower"
 
 # Opens a new tab with the cwd
 function tab {
@@ -275,7 +275,7 @@ alias 'rake?'="rake -T | grep $1"
 alias datafart='curl --data-binary @- datafart.com'
 
 function calculator() {
-  bc -ql <<< "$@"|perl -pe 's/(\.[^0]+)0+$|\.0+$/$1/'
+	bc -ql <<< "$@"|perl -pe 's/(\.[^0]+)0+$|\.0+$/$1/'
 }
 alias '?=calculator'
 
@@ -284,7 +284,7 @@ bindkey "^[[3~" delete-char
 
 # completions
 source $HOME/.zsh/_gem.zsh
-# source $HOME/.zsh/_rake_completion.zsh
+source $HOME/.zsh/_rake_completion.zsh
 
 # code reading tools
 
@@ -350,11 +350,9 @@ export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-if [ -f $HOME/.rvm/bin ]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/vesan/.travis/travis.sh ] && source /Users/vesan/.travis/travis.sh
@@ -366,8 +364,34 @@ if [ -d "$GHC_DOT_APP" ]; then
 fi
 
 # Android development
-export ANDROID_HOME=/opt/boxen/homebrew/opt/android-sdk
+export ANDROID_HOME=/Users/vesan/Library/Android/sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# Docker
+# eval "$(docker-machine env default)"
+
+if hash rbenv 2>/dev/null; then
+  eval "$(rbenv init - --no-rehash)"
+fi
 
 if hash nodenv 2>/dev/null; then
   eval "$(nodenv init -)"
 fi
+
+export PATH="$HOME/bin:$PATH"
+
+# PATH="/Users/vesan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/Users/vesan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/Users/vesan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/Users/vesan/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/Users/vesan/perl5"; export PERL_MM_OPT;
+
+source /usr/local/share/zsh/site-functions/_awless
+
+# Yarn binaries globally
+export PATH="$PATH:`yarn global bin`"
+
+# LibreOffice binary
+export PATH=${PATH}:/Applications/LibreOffice.app/Contents/MacOS
