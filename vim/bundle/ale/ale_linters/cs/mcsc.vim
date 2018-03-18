@@ -10,7 +10,11 @@ function! s:GetWorkingDirectory(buffer) abort
         return l:working_directory
     endif
 
+<<<<<<< HEAD
     return fnamemodify(bufname(a:buffer), ':p:h')
+=======
+    return expand('#' . a:buffer . ':p:h')
+>>>>>>> Updated vim plugins
 endfunction
 
 function! ale_linters#cs#mcsc#GetCommand(buffer) abort
