@@ -75,6 +75,9 @@ Plug 'posva/vim-vue'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi-vue'
+
+autocmd BufNewFile,BufRead *.vue set filetype=vue
 
 call plug#end()
 
