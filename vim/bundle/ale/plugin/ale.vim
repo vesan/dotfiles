@@ -32,14 +32,11 @@ if !s:has_features
     finish
 endif
 
-<<<<<<< HEAD
-=======
 if has('nvim') && !has('nvim-0.2.0') && !get(g:, 'ale_use_deprecated_neovim')
     execute 'echom ''ALE support for NeoVim versions below 0.2.0 is deprecated.'''
     execute 'echom ''Use `let g:ale_use_deprecated_neovim = 1` to silence this warning for now.'''
 endif
 
->>>>>>> Updated vim plugins
 " This flag can be set to 0 to disable emitting conflict warnings.
 let g:ale_emit_conflict_warnings = get(g:, 'ale_emit_conflict_warnings', 1)
 
@@ -252,11 +249,8 @@ command! -bar ALEToggleBuffer :call ale#toggle#ToggleBuffer(bufnr(''))
 command! -bar ALEEnableBuffer :call ale#toggle#EnableBuffer(bufnr(''))
 command! -bar ALEDisableBuffer :call ale#toggle#DisableBuffer(bufnr(''))
 command! -bar ALEResetBuffer :call ale#toggle#ResetBuffer(bufnr(''))
-<<<<<<< HEAD
-=======
 " A command to stop all LSP-like clients, including tsserver.
 command! -bar ALEStopAllLSPs :call ale#lsp#reset#StopAllLSPs()
->>>>>>> Updated vim plugins
 
 " A command for linting manually.
 command! -bar ALELint :call ale#Queue(0, 'lint_file')
