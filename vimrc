@@ -99,6 +99,8 @@ let g:ale_fixers = {
 \   ]
 \}
 
+let g:ale_javascript_prettier_use_local_config = 1
+
 let g:ale_linters = {
 \   'typescript': [
 \       'tslint',
@@ -391,7 +393,7 @@ let g:snippets_dir = "~/.vim/snippets/"
 let Tlist_WinWidth = 30
 
 " Faster way to get to previous file
-nmap gb <C-^>     
+nmap gb <C-^>
 
 " Shortcuts for per line moving
 vmap <D-j> gj
@@ -605,8 +607,7 @@ let g:vimwiki_list = [{'path': '~/Dropbox/Notes',
 " prettier
 
 let g:prettier#config#trailing_comma = 'es5'
-let g:prettier#quickfix_enabled = 1
+let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 let g:prettier#config#single_quote = 'false'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
-
+autocmd BufWritePre,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
