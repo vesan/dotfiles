@@ -210,6 +210,8 @@ set winheight=999
 
 set wildignore+=*.o,*.png,*.PNG,*.JPG,*.jpg,*.jpeg,*.JPEG,*.gif,*.pdf,*.jar,*.scssc,coverage/**,tmp/**
 
+set iskeyword+=-
+
 " Shortcut to rapidly toggle `set list`
 map <leader>l :set list!<CR>
 
