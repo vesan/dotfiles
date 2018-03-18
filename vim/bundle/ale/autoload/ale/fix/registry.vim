@@ -22,15 +22,12 @@ let s:default_registry = {
 \       'suggested_filetypes': ['javascript'],
 \       'description': 'Apply prettier-standard to a file.',
 \       'aliases': ['prettier-standard'],
-<<<<<<< HEAD
-=======
 \   },
 \   'elm-format': {
 \       'function': 'ale#fixers#elm_format#Fix',
 \       'suggested_filetypes': ['elm'],
 \       'description': 'Apply elm-format to a file.',
 \       'aliases': ['format'],
->>>>>>> Updated vim plugins
 \   },
 \   'eslint': {
 \       'function': 'ale#fixers#eslint#Fix',
@@ -41,14 +38,6 @@ let s:default_registry = {
 \       'function': 'ale#fixers#mix_format#Fix',
 \       'suggested_filetypes': ['elixir'],
 \       'description': 'Apply mix format to a file.',
-<<<<<<< HEAD
-\   },
-\   'format': {
-\       'function': 'ale#fixers#format#Fix',
-\       'suggested_filetypes': ['elm'],
-\       'description': 'Apply elm-format to a file.',
-=======
->>>>>>> Updated vim plugins
 \   },
 \   'isort': {
 \       'function': 'ale#fixers#isort#Fix',

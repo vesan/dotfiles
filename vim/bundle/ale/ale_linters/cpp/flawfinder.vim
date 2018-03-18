@@ -26,9 +26,5 @@ call ale#linter#Define('cpp', {
 \  'output_stream': 'stdout',
 \  'executable_callback': 'ale_linters#cpp#flawfinder#GetExecutable',
 \  'command_callback': 'ale_linters#cpp#flawfinder#GetCommand',
-<<<<<<< HEAD
-\  'callback': 'ale#handlers#gcc#HandleGCCFormat',
-=======
 \  'callback': 'ale#handlers#flawfinder#HandleFlawfinderFormat',
->>>>>>> Updated vim plugins
 \})

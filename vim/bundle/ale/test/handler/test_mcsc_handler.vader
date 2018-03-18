@@ -23,17 +23,10 @@ Execute(The mcs handler should work with the default of the buffer's directory):
   \     'text': '; expected',
   \     'code': 'CS1001',
   \     'type': 'E',
-<<<<<<< HEAD
-  \     'filename': ale#path#Simplify(expand('%:p:h') . '/Test.cs'),
-  \   },
-  \ ],
-  \ ale_linters#cs#mcsc#Handle(347, [
-=======
   \     'filename': ale#path#Simplify(g:dir . '/Test.cs'),
   \   },
   \ ],
   \ ale_linters#cs#mcsc#Handle(bufnr(''), [
->>>>>>> Updated vim plugins
   \   'Test.cs(12,29): error CS1001: ; expected',
   \   'Compilation failed: 2 error(s), 1 warnings',
   \ ])

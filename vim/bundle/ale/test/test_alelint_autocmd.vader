@@ -25,8 +25,6 @@ Execute(Run a lint cycle, and check that a variable is set in the autocmd):
 
   AssertEqual g:pre_success, 1
   AssertEqual g:post_success, 1
-<<<<<<< HEAD
-=======
 
 Execute(b:ale_linted should be increased after each lint cycle):
   AssertEqual get(b:, 'ale_linted'), 0
@@ -38,4 +36,3 @@ Execute(b:ale_linted should be increased after each lint cycle):
   call ale#Lint()
 
   AssertEqual get(b:, 'ale_linted'), 2
->>>>>>> Updated vim plugins

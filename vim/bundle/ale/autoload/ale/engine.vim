@@ -76,14 +76,11 @@ function! ale#engine#InitBufferInfo(buffer) abort
     return 0
 endfunction
 
-<<<<<<< HEAD
-=======
 " Clear LSP linter data for the linting engine.
 function! ale#engine#ClearLSPData() abort
     let s:lsp_linter_map = {}
 endfunction
 
->>>>>>> Updated vim plugins
 " This function is documented and part of the public API.
 "
 " Return 1 if ALE is busy checking a given buffer
