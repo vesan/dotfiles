@@ -44,7 +44,7 @@ g:ale_json_fixjson_use_global                   *g:ale_json_fixjson_use_global*
                                                 *b:ale_json_fixjson_use_global*
 
   Type: |Number|
-  Default: `0`
+  Default: `get(g:, 'ale_use_global_executables', 0)`
 
   See |ale-integrations-local-executables|
 
@@ -72,6 +72,13 @@ g:ale_json_jq_options                                   *g:ale_json_jq_options*
   Default: `''`
 
   This option can be changed to pass extra options to `jq`.
+
+g:ale_json_jq_filters                                   *g:ale_json_jq_filters*
+                                                        *b:ale_json_jq_filters*
+  Type: |String|
+  Default: `'.'`
+
+  This option can be changed to pass custom filters to `jq`.
 
 
 ===============================================================================
