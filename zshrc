@@ -5,8 +5,9 @@
 # From git distribution, slightly modified to work with zsh
 # source ~/bin/dotfiles/git-completion.zsh
 
-export LC_ALL="fi_FI.UTF-8"
-export LANG="fi_FI.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
 
 export PATH="$PATH:/usr/local/bin"
 
