@@ -630,6 +630,24 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 let g:vimwiki_list = [{'path': '~/Dropbox/Notes',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
+nmap <Leader>+ <Plug>VimwikiNormalizeLink
+vmap <Leader>+ <Plug>VimwikiNormalizeLinkVisual
+
+" Support for mailplane links
+function! VimwikiLinkHandler(link)
+  let link = a:link
+  if link =~# '^\(mailplane:\|omnifocus:\)'
+    try
+      call system('open ' . shellescape(link).' &')
+      return 1
+    catch
+      echo "This can happen for a variety of reasons ..."
+      return 0
+    endtry
+  else
+    return 0
+  endif
+endfunction
 
 " prettier
 
