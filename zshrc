@@ -397,3 +397,19 @@ export PATH="$PATH:`yarn global bin`"
 
 # LibreOffice binary
 export PATH=${PATH}:/Applications/LibreOffice.app/Contents/MacOS
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# heroku autocomplete setup
+# breaks autocompletion
+# HEROKU_AC_ZSH_SETUP_PATH=/Users/vesan/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+export PATH=${PATH}:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
