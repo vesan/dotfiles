@@ -79,6 +79,28 @@ Plug 'Quramy/tsuquyomi'
 
 autocmd BufNewFile,BufRead *.vue set filetype=vue
 
+" ReasonML
+
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ 'for': 'reason',
+    \ }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'reason' }
+else
+  Plug 'Shougo/deoplete.nvim', { 'for': 'reason' }
+  Plug 'roxma/nvim-yarp', { 'for': 'reason' }
+  Plug 'roxma/vim-hug-neovim-rpc', { 'for': 'reason' }
+endif
+let g:deoplete#enable_at_startup = 1
+
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }
+
 call plug#end()
 
 filetype off
