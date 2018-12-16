@@ -366,8 +366,9 @@ fi
 # Android development
 export ANDROID_HOME=/Users/vesan/Library/Android/sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
-export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 
 # Docker
 # eval "$(docker-machine env default)"
