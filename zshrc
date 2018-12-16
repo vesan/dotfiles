@@ -243,22 +243,6 @@ function terminal_title {
   fi
 }
 
-# cd into a rails dir, start mvim and rails console
-function r {
-  # cd $1
-  as_terminal_cmd "terminal_title Server"
-  as_terminal_cmd "ss"
-  tab
-  as_terminal_cmd "terminal_title Console"
-  as_terminal_cmd "sc"
-  tab
-  as_terminal_cmd "terminal_title Autospec"
-  as_terminal_cmd "autospec"
-  tab
-  as_terminal_cmd "terminal_title Hacking"
-  as_terminal_cmd "$EDITOR ."
-}
-
 function wiki {
   currentpath=$(pwd)
   cd ~/Dropbox/wiki && soywiki
