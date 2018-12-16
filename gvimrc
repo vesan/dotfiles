@@ -9,6 +9,8 @@ set lines=62 columns=100           " Window dimensions.
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-r> :Rake<cr>
+
+  cd ~/Dropbox/Notes
 end
 
 " Load local configs
