@@ -64,17 +64,21 @@ Plug 'lambdatoast/elm.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-repeat'
 
 Plug 'w0rp/ale'
-
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
-Plug 'posva/vim-vue'
+" TypeScript
 
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+
+" Vue
+
+Plug 'posva/vim-vue'
 " Plug 'Quramy/tsuquyomi-vue'
 
 autocmd BufNewFile,BufRead *.vue set filetype=vue
@@ -112,27 +116,6 @@ filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 let mapleader = ","
-
-" ale
-
-let g:ale_fix_on_save = 1
-
-let g:ale_fixers = {
-\   'javascript': [
-\       'eslint',
-\       'prettier_eslint'
-\   ]
-\}
-
-let g:ale_javascript_prettier_use_local_config = 1
-
-let g:ale_linters = {
-\   'typescript': [
-\       'tslint',
-\       'tsserver',
-\       'typecheck'
-\   ]
-\}
 
 " tsuquyomi
 
@@ -204,11 +187,10 @@ set title                         " Set the terminal's title
 
 set visualbell                    " No beeping.
 
+set expandtab                     " Use spaces instead of tabs
 set tabstop=2                     " Global tab width.
 set softtabstop=2                 " And again, related.
 set shiftwidth=2                  " And again, related.
-set expandtab                     " Use spaces instead of tabs
-set softtabstop=2
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -379,6 +361,37 @@ map <C-K> <C-W>k
 
 command! W w
 command! Q q
+
+" ale
+
+" let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+\   'javascript': [
+\       'eslint',
+\       'prettier_eslint'
+\   ],
+\   'ruby': [
+\       'standardrb'
+\   ]
+\}
+let g:ale_pattern_options = {
+\   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\   '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\ }
+
+let g:ale_javascript_prettier_use_local_config = 1
+
+let g:ale_linters = {
+\   'typescript': [
+\       'tslint',
+\       'tsserver',
+\       'typecheck'
+\   ]
+\}
+
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
 
 " NERDTree
@@ -655,4 +668,4 @@ let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 let g:prettier#config#single_quote = 'false'
-autocmd BufWritePre,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
