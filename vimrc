@@ -356,6 +356,8 @@ map <C-K> <C-W>k
 " autocmd FileType ruby set foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
+autocmd FileType php setlocal shiftwidth=4 softtabstop=4
+
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
