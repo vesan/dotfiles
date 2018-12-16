@@ -1,3 +1,4 @@
+# Global gitignore file
 .DS_Store
 .rake_tasks
 *.swp

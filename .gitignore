@@ -1,5 +1,8 @@
+# gitignore file for the dotfiles repo
 vim/.netrwhist
 tweet.rb
 config/hub
 config/configstore
 config/yarn
+config/psysh/psysh_history
+doc/tags
