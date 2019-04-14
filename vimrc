@@ -35,7 +35,7 @@ Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-bundler'
 
-Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 
@@ -124,9 +124,6 @@ autocmd FileType typescript nmap <buffer> <Leader>i : <C-u>echo tsuquyomi#hint()
 
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
-
-" vim-jsx config
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " ctrl-p config
 let g:ctrlp_map = '<leader>t'
