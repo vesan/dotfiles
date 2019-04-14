@@ -74,38 +74,13 @@ autocmd FileType vue syntax sync fromstart
 See `:h :syn-sync-first` and [this article](http://vim.wikia.com/wiki/Fix_syntax_highlighting)
 for more details.
 
-### How can I use existing configuration/plugins in Vue files?
-
-If you already have some configuration for filetypes like html, css and
-javascript (e.g. linters, completion), an easy way to use them in Vue files is
-by setting compound filetypes like this:
-
-```vim
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-```
-
-:warning: This may cause problems, because some plugins will then treat the
-whole buffer as html/javascript/css instead of only the part inside the tags.
-Ideally, you should configure everything that you want to use in Vue files
-individually.
-
 ### How to use commenting functionality with multiple languages in Vue files?
 
 #### [caw.vim](https://github.com/tyru/caw.vim)
 
 caw.vim features built-in support for file context through [context_filetype.vim](https://github.com/Shougo/context_filetype.vim). Just install both plugins and context-aware commenting will work in most files. The fenced code is detected by predefined regular expressions.
 
-<<<<<<< HEAD
-### How to use commenting functionality with multiple languages in Vue files?
-
-#### caw.vim
-
-caw.vim features built-in support for file context through [context_filetype.vim](https://github.com/Shougo/context_filetype.vim). Just install both plugins and context-aware commenting will work in most files. The fenced code is detected by predefined regular expressions.
-
-#### NERDCommenter
-=======
 #### [NERDCommenter](https://github.com/scrooloose/nerdcommenter)
->>>>>>> Updated vim plugins
 
 <details>
 <summary>

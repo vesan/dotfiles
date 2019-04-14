@@ -107,6 +107,19 @@ Commands
  * `:Vimwiki2HTML` -- Convert current wiki link to HTML
  * `:VimwikiAll2HTML` -- Convert all your wiki links to HTML
  * `:help vimwiki-commands` -- list all commands
+ * `:help vimwiki` -- General vimwiki help docs
+
+
+Changing Wiki Syntax
+------------------------------------------------------------------------------
+
+ Vimwiki currently ships with 3 syntaxes: Vimwiki (default), Markdown (markdown), and MediaWiki (media)
+
+ If you would prefer to use either Markdown or MediaWiki syntaxes, set the following option in your .vimrc:
+ ```
+     let g:vimwiki_list = [{'path': '~/vimwiki/',
+                           \ 'syntax': 'markdown', 'ext': '.md'}]
+ ```
 
 
 Installation
@@ -161,8 +174,13 @@ Then launch Vim, run `:Helptags` and then `:help vimwiki` to verify it was insta
 Getting help
 ==============================================================================
 
-Have a question? Visit the IRC channel `#vimwiki` on Freenode ([webchat](https://webchat.freenode.net/?channels=#vimwiki))
-or post to the [mailing list](https://groups.google.com/forum/#!forum/vimwiki).
+Have a question? Visit the IRC channel `#vimwiki` on Freenode ([webchat](https://webchat.freenode.net/?channels=#vimwiki), also synced to Matrix/Riot: `#freenode_#vimwiki:matrix.org`) or post to the [mailing list](https://groups.google.com/forum/#!forum/vimwiki).
+
+Helping Vimwiki
+==============================================================================
+
+Vimwiki has a lot of users but only very few recurring developers or people helping the community. Your help is therefore appreciated. Everyone can help! See [#625](https://github.com/vimwiki/vimwiki/issues/625) for information on how you can help.
+
 
 
 ----

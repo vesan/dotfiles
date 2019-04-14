@@ -9,6 +9,30 @@ settings.
 
 If you have feature request and/or suggestions please comment on issue [1.0 release](https://github.com/prettier/vim-prettier/issues/126)
 
+If you want to try out the `release/1.x` branch feel free to add this to your `.vimrc`
+
+```vim
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
+```
+
 ---
 
 By default it will auto format **javascript**, **typescript**, **less**,
@@ -219,6 +243,9 @@ let g:prettier#config#config_precedence = 'prefer-file'
 
 " always|never|preserve
 let g:prettier#config#prose_wrap = 'preserve'
+
+" css|strict|ignore
+let g:prettier#config#html_whitespace_sensitivity = 'css'
 ```
 
 ### REQUIREMENT(S)
