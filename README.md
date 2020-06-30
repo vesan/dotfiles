@@ -23,6 +23,8 @@ Run:
 
     brew bundle --file ~/.dotfiles/extras/Brewfile
 
+`--no-upgrade` option is available.
+
 ### MacOS settings
 
 Changes MacOS defaults.
