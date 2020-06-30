@@ -18,3 +18,4 @@ if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
 
+let g:vimwiki_url_maxsave=0
