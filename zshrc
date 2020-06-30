@@ -385,7 +385,6 @@ export PATH="$PATH:`yarn global bin`"
 # LibreOffice binary
 export PATH=${PATH}:/Applications/LibreOffice.app/Contents/MacOS
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 # heroku autocomplete setup
