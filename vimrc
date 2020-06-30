@@ -122,6 +122,9 @@ let mapleader = ","
 autocmd FileType typescript nmap <buffer> <Leader>i : <C-u>echo tsuquyomi#hint()<CR>
 " let g:tsuquyomi_disable_quickfix = 1
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 " Don't load PeepOpen
 let g:peepopen_loaded = 1
 
@@ -644,6 +647,8 @@ let g:vimwiki_list = [{'path': '~/Dropbox/Notes',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
 nmap <Leader>+ <Plug>VimwikiNormalizeLink
 vmap <Leader>+ <Plug>VimwikiNormalizeLinkVisual
+
+let g:vimwiki_url_maxsave = 0
 
 " Support for mailplane links
 function! VimwikiLinkHandler(link)
