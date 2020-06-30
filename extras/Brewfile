@@ -3,6 +3,14 @@
 # tap "homebrew/bundle"
 # tap "homebrew/core"
 
+tap "github/gh"
+tap "heroku/brew"
+tap "homebrew/services"
+tap "minio/stable"
+tap "nodenv/nodenv"
+tap "rogual/neovim-dot-app"
+tap "thoughtbot/formulae"
+
 brew "git"
 brew "git-extras"
 brew "autojump"
