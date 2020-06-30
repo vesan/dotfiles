@@ -1,0 +1,4 @@
+hosts:
+    github.com:
+        oauth_token: c65c34d92daef934eb913481a6160231b588aeb6
+        user: vesan
