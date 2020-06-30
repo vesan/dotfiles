@@ -12,6 +12,8 @@ let g:ale_kotlin_kotlinc_module_filename = get(g:, 'ale_kotlin_kotlinc_module_fi
 let s:classpath_sep = has('unix') ? ':' : ';'
 
 function! ale_linters#kotlin#kotlinc#RunWithImportPaths(buffer) abort
+    let l:command = ''
+
     " exec maven/gradle only if classpath is not set
     if ale#Var(a:buffer, 'kotlin_kotlinc_classpath') isnot# ''
         return ale_linters#kotlin#kotlinc#GetCommand(a:buffer, [], {})
@@ -172,6 +174,7 @@ endfunction
 call ale#linter#Define('kotlin', {
 \   'name': 'kotlinc',
 \   'executable': 'kotlinc',
+\   'output_stream': 'stderr',
 \   'command': function('ale_linters#kotlin#kotlinc#RunWithImportPaths'),
 \   'callback': 'ale_linters#kotlin#kotlinc#Handle',
 \   'lint_file': 1,

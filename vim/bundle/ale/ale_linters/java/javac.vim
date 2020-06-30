@@ -6,6 +6,7 @@ let s:classpath_sep = has('unix') ? ':' : ';'
 call ale#Set('java_javac_executable', 'javac')
 call ale#Set('java_javac_options', '')
 call ale#Set('java_javac_classpath', '')
+call ale#Set('java_javac_sourcepath', '')
 
 function! ale_linters#java#javac#RunWithImportPaths(buffer) abort
     let l:command = ''
@@ -19,6 +20,11 @@ function! ale_linters#java#javac#RunWithImportPaths(buffer) abort
     " Try to use Gradle if Maven isn't available.
     if empty(l:command)
         let l:command = ale#gradle#BuildClasspathCommand(a:buffer)
+    endif
+
+    " Try to use Ant if Gradle and Maven aren't available
+    if empty(l:command)
+        let l:command = ale#ant#BuildClasspathCommand(a:buffer)
     endif
 
     if empty(l:command)
@@ -35,10 +41,15 @@ endfunction
 function! s:BuildClassPathOption(buffer, import_paths) abort
     " Filter out lines like [INFO], etc.
     let l:class_paths = filter(a:import_paths[:], 'v:val !~# ''[''')
-    call extend(
-    \   l:class_paths,
-    \   split(ale#Var(a:buffer, 'java_javac_classpath'), s:classpath_sep),
-    \)
+    let l:cls_path = ale#Var(a:buffer, 'java_javac_classpath')
+
+    if !empty(l:cls_path) && type(l:cls_path) is v:t_string
+        call extend(l:class_paths, split(l:cls_path, s:classpath_sep))
+    endif
+
+    if !empty(l:cls_path) && type(l:cls_path) is v:t_list
+        call extend(l:class_paths, l:cls_path)
+    endif
 
     return !empty(l:class_paths)
     \   ? '-cp ' . ale#Escape(join(l:class_paths, s:classpath_sep))
@@ -74,6 +85,27 @@ function! ale_linters#java#javac#GetCommand(buffer, import_paths, meta) abort
         endif
     endif
 
+    let l:source_paths = []
+    let l:source_path = ale#Var(a:buffer, 'java_javac_sourcepath')
+
+    if !empty(l:source_path) && type(l:source_path) is v:t_string
+        let l:source_paths = split(l:source_path, s:classpath_sep)
+    endif
+
+    if !empty(l:source_path) && type(l:source_path) is v:t_list
+        let l:source_paths = l:source_path
+    endif
+
+    if !empty(l:source_paths)
+        for l:path in l:source_paths
+            let l:sp_path = ale#path#FindNearestDirectory(a:buffer, l:path)
+
+            if !empty(l:sp_path)
+                call add(l:sp_dirs, l:sp_path)
+            endif
+        endfor
+    endif
+
     if !empty(l:sp_dirs)
         let l:sp_option = '-sourcepath '
         \   . ale#Escape(join(l:sp_dirs, s:classpath_sep))
@@ -99,7 +131,7 @@ function! ale_linters#java#javac#Handle(buffer, lines) abort
     " Main.java:13: warning: [deprecation] donaught() in Testclass has been deprecated
     " Main.java:16: error: ';' expected
     let l:directory = expand('#' . a:buffer . ':p:h')
-    let l:pattern = '\v^(.*):(\d+): (.+):(.+)$'
+    let l:pattern = '\v^(.*):(\d+): (.{-1,}):(.+)$'
     let l:col_pattern = '\v^(\s*\^)$'
     let l:symbol_pattern = '\v^ +symbol: *(class|method) +([^ ]+)'
     let l:output = []
