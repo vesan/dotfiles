@@ -342,6 +342,9 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # added by travis gem
 [ -f /Users/vesan/.travis/travis.sh ] && source /Users/vesan/.travis/travis.sh
 
+# disable spring
+export DISABLE_SPRING="true"
+
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 if [ -d "$GHC_DOT_APP" ]; then
