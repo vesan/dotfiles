@@ -6,6 +6,7 @@ Install Homebrew:
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+
 ### Dotfiles
 
 Clone this repo into `~/.dotfiles`:
@@ -45,3 +46,8 @@ Installation:
 ### Development tooling
 
     . ~/.dotfiles/extras/development_tooling.sh
+
+### Setting up new computer
+
+- [ ] Setup Dash.app sync directory
+
