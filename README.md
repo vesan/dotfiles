@@ -47,7 +47,13 @@ Installation:
 
     . ~/.dotfiles/extras/development_tooling.sh
 
+### Link preferences
+
+    . ~/.dotfiles/extras/link_preferences.sh
+
 ### Setting up new computer
 
 - [ ] Setup Dash.app sync directory
+- [ ] Setup Alfred.app sync directory (Advanced)
+- [ ] Setup Iterm2.app sync directory (General > Preferences)
 
