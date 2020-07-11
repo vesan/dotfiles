@@ -49,11 +49,13 @@ Installation:
 
 ### Link preferences
 
-    . ~/.dotfiles/extras/link_preferences.sh
+    sudo sh ~/.dotfiles/extras/link_preferences.sh
 
 ### Setting up new computer
 
+- [ ] Moving over `.ssh` files
 - [ ] Setup Dash.app sync directory
 - [ ] Setup Alfred.app sync directory (Advanced)
 - [ ] Setup Iterm2.app sync directory (General > Preferences)
-
+- [ ] Import Divvy shortcuts https://mizage.com/help/divvy/export_import.html
+- [ ] Copy OmniFocus scripts from Dropbox to ~/Library/Application\ Scripts/com.omnigroup.OmniFocus3/
