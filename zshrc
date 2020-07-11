@@ -92,7 +92,7 @@ export TERM=xterm-color
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
 
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+# fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=(~/.zsh/Completion $fpath)
 
 # http://stackoverflow.com/questions/1642881/how-to-enable-git-file-tab-completion-with-zsh-compinit
@@ -399,3 +399,5 @@ export PATH=${PATH}:"/Applications/Visual Studio Code.app/Contents/Resources/app
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
