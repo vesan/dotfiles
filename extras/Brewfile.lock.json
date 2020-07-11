@@ -841,12 +841,84 @@
         "options": {
           "full_name": "bartender"
         }
+      },
+      "little-snitch": {
+        "version": "4.5.2",
+        "options": {
+          "full_name": "little-snitch"
+        }
+      },
+      "postgres": {
+        "version": "2.3.5",
+        "options": {
+          "full_name": "postgres"
+        }
+      },
+      "postico": {
+        "version": "1.5.13",
+        "options": {
+          "full_name": "postico"
+        }
+      },
+      "daisydisk": {
+        "version": "4.10",
+        "options": {
+          "full_name": "daisydisk"
+        }
+      },
+      "timing": {
+        "version": "2020.5",
+        "options": {
+          "full_name": "timing"
+        }
+      },
+      "docker": {
+        "version": "2.3.0.3,45519",
+        "options": {
+          "full_name": "docker"
+        }
+      },
+      "postman": {
+        "version": "7.27.0",
+        "options": {
+          "full_name": "postman"
+        }
+      },
+      "soulver": {
+        "version": "3.4.3-117",
+        "options": {
+          "full_name": "soulver"
+        }
+      },
+      "anki": {
+        "version": "2.1.26",
+        "options": {
+          "full_name": "anki"
+        }
+      },
+      "notion": {
+        "version": "2.0.7",
+        "options": {
+          "full_name": "notion"
+        }
+      },
+      "drawio": {
+        "version": "13.3.1",
+        "options": {
+          "full_name": "drawio"
+        }
+      },
+      "foldingtext": {
+        "version": "2.2",
+        "options": {
+          "full_name": "foldingtext"
+        }
       }
     },
     "mas": {
       "Slack": {
         "id": "803453959",
-        "version": "4.6.0"
+        "version": "4.7.0"
       },
       "The Unarchiver": {
         "id": "425424353",
@@ -880,7 +952,7 @@
       "Reeder 4": null,
       "NordVPN IKE": {
         "id": "1116599239",
-        "version": "5.5.7"
+        "version": "5.6.0"
       },
       "Instapaper Save": null,
       "Marked 2": {

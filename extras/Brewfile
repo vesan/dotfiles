@@ -78,6 +78,18 @@ cask "transmit"
 cask "macvim"
 cask "visual-studio-code"
 cask "bartender"
+cask "little-snitch"
+cask "postgres"
+cask "postico"
+cask "daisydisk"
+cask "timing"
+cask "docker"
+cask "postman"
+cask "soulver"
+cask "anki"
+cask "notion"
+cask "drawio"
+cask "foldingtext"
 
 # Mac App Store
 # "Copy Link" from the App Store UI to get the ID.
