@@ -3,6 +3,6 @@
 :backtrace: false
 :benchmark: false
 :update_sources: true
-gem: --no-ri --no-rdoc
+gem: --no-document
 rdoc: --line-numbers --format=darkfish
 :bulk_threshold: 1000
