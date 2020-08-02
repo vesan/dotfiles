@@ -41,6 +41,7 @@ brew "httpie"
 brew "memcached"
 brew "heroku"
 brew "amazon-ecs-cli"
+brew "git-delta"
 
 tap "wallix/awless"
 brew "awless"

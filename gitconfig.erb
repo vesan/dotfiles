@@ -62,6 +62,7 @@
   untracked = cyan
 [core]
   excludesfile = ~/.gitignore
+  pager = delta
 [gui]
   fontui = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
   fontdiff = -family Consolas -size 13 -weight normal -slant roman -underline 0 -overstrike 0
@@ -73,3 +74,9 @@
   default = current
 [diff "ruby"]
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+[delta]
+  side-by-side = true
+  features = decorations
+  syntax-theme = zenburn
+[interactive]
+  diffFilter = delta --color-only
