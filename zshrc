@@ -401,3 +401,6 @@ export PATH=${PATH}:"/Applications/Visual Studio Code.app/Contents/Resources/app
 [[ -f /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/vesan/.npm/_npx/1575/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'

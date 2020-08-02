@@ -5,4 +5,7 @@ config/hub
 config/configstore
 config/yarn
 config/psysh/psysh_history
+config/coc/extensions
+config/coc/memos.json
+config/.mono
 doc/tags
