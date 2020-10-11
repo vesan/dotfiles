@@ -21,6 +21,7 @@ Notes:
   * `drafter`
 * AsciiDoc
   * `alex`!!
+  * `languagetool`!!
   * `proselint`
   * `redpen`
   * `textlint`
@@ -31,6 +32,7 @@ Notes:
 * Awk
   * `gawk`
 * Bash
+  * `bashate`
   * `language-server`
   * `shell` (-n flag)
   * `shellcheck`
@@ -44,8 +46,9 @@ Notes:
   * `shellcheck`
   * `shfmt`
 * C
+  * `astyle`
   * `ccls`
-  * `clang`
+  * `clang` (`cc`)
   * `clangd`
   * `clang-format`
   * `clangtidy`!!
@@ -53,7 +56,7 @@ Notes:
   * `cpplint`!!
   * `cquery`
   * `flawfinder`
-  * `gcc`
+  * `gcc` (`cc`)
   * `uncrustify`
 * C#
   * `csc`!!
@@ -61,8 +64,9 @@ Notes:
   * `mcsc`!!
   * `uncrustify`
 * C++ (filetype cpp)
+  * `astyle`
   * `ccls`
-  * `clang`
+  * `clang` (`cc`)
   * `clangcheck`!!
   * `clangd`
   * `clang-format`
@@ -72,7 +76,7 @@ Notes:
   * `cpplint`!!
   * `cquery`
   * `flawfinder`
-  * `gcc`
+  * `gcc` (`cc`)
   * `uncrustify`
 * Chef
   * `cookstyle`
@@ -115,6 +119,8 @@ Notes:
   * `dartanalyzer`!!
   * `dartfmt`!!
   * `language_server`
+* Dhall
+  * `dhall-format`
 * Dockerfile
   * `dockerfile_lint`
   * `hadolint`
@@ -369,6 +375,7 @@ Notes:
   * `pylint`!!
   * `pyls`
   * `pyre`
+  * `pyright`
   * `reorder-python-imports`
   * `vulture`!!
   * `yapf`
@@ -442,6 +449,7 @@ Notes:
   * `sqlfmt`
   * `sqlformat`
   * `sqlint`
+  * `sql-lint`
 * Stylus
   * `stylelint`
 * SugarSS
@@ -449,6 +457,7 @@ Notes:
 * Swift
   * `sourcekit-lsp`
   * `swiftformat`
+  * `swift-format`
   * `swiftlint`
 * Tcl
   * `nagelfar`!!
@@ -480,6 +489,7 @@ Notes:
 * VALA
   * `uncrustify`
 * Verilog
+  * `hdl-checker`
   * `iverilog`
   * `verilator`
   * `vlog`
@@ -510,3 +520,5 @@ Notes:
   * `yamllint`
 * YANG
   * `yang-lsp`
+* Zig
+  * `zls`
