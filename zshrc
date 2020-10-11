@@ -222,8 +222,6 @@ alias remigrate="bundle exec rake db:migrate db:migrate:redo db:schema:dump db:t
 alias huh="git diff HEAD | vim"
 alias start-postgres="sudo su postgres -c '/opt/local/lib/postgresql84/bin/postgres -D /opt/local/var/db/postgresql84/defaultdb &'"
 
-alias gt="git rev-parse --show-toplevel | xargs gittower"
-
 # Opens a new tab with the cwd
 function tab {
   osascript -e "
@@ -354,9 +352,11 @@ fi
 # Android development
 export ANDROID_HOME=/Users/vesan/Library/Android/sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
-export PATH=${PATH}:${ANDROID_HOME}/tools/bin
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 
 # Docker
 # eval "$(docker-machine env default)"
