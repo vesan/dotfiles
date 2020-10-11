@@ -91,6 +91,7 @@ cask "anki"
 cask "notion"
 cask "drawio"
 cask "foldingtext"
+cask "rescuetime"
 
 # Mac App Store
 # "Copy Link" from the App Store UI to get the ID.
