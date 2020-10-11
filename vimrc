@@ -5,7 +5,6 @@ set nocompatible
 call plug#begin("~/.vim/bundle")
 
 Plug 'altercation/vim-colors-solarized'
-
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -65,20 +64,18 @@ Plug 'tpope/vim-eunuch'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-repeat'
-
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " TypeScript
 
 Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Vue
 
@@ -110,7 +107,6 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 call plug#end()
-
 filetype off
 
 let &runtimepath.=',~/.vim/bundle/ale'
@@ -123,7 +119,7 @@ let mapleader = ","
 
 " tsuquyomi
 
-autocmd FileType typescript nmap <buffer> <Leader>i : <C-u>echo tsuquyomi#hint()<CR>
+" autocmd FileType typescript nmap <buffer> <Leader>i : <C-u>echo tsuquyomi#hint()<CR>
 " let g:tsuquyomi_disable_quickfix = 1
 
 " vim-json
@@ -133,7 +129,7 @@ let g:vim_json_syntax_conceal = 0
 let g:peepopen_loaded = 1
 
 nmap <leader>t :GFiles<CR>
-nmap <leader>t :Files<CR>
+" nmap <leader>t :Files<CR>
 
 " ctrl-p config
 " let g:ctrlp_map = '<leader>t'
@@ -163,9 +159,10 @@ set shell=/bin/sh
 runtime macros/matchit.vim        " Load the matchit plugin.
 
 set nobackup                      " do not keep a backup file, use versions instead
+" set noswapfile                    " ... or don't keep swap files at all
+set noundofile
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-set noswapfile                    " ... or don't keep swap files at all
 
 set history=50                    " keep 50 lines of command line history
 set showcmd                       " display incomplete commands
@@ -380,6 +377,10 @@ let g:ale_fixers = {
 \       'eslint',
 \       'prettier_eslint'
 \   ],
+\   'typescript': [
+\       'eslint',
+\       'prettier_eslint'
+\   ],
 \   'ruby': [
 \       'standardrb'
 \   ]
@@ -391,13 +392,12 @@ let g:ale_pattern_options = {
 
 let g:ale_javascript_prettier_use_local_config = 1
 
-let g:ale_linters = {
-\   'typescript': [
-\       'tslint',
-\       'tsserver',
-\       'typecheck'
-\   ]
-\}
+" let g:ale_linters = {
+" \   'typescript': [
+" \       'tsserver',
+" \       'typecheck'
+" \   ]
+" \}
 
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
@@ -677,12 +677,15 @@ endfunction
 
 let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 let g:prettier#config#single_quote = 'false'
 let g:prettier#config#bracket_spacing = 'true'
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
 " coc.vim
+
+" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -741,3 +744,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" rg
+" set grepprg=rg\ --vimgrep
