@@ -1,0 +1,21 @@
+secure_input_notification: false
+matches:
+  - trigger: ":ssig "
+    replace: |
+      - - -
+
+      Vesa Vänskä
+      +358 50 3079234
+      Kisko Labs
+
+      https://twitter.com/vesan
+      https://www.kiskolabs.com
+      https://www.wodconnect.com
+  - trigger: ":ssiw "
+    replace: |
+      - - -
+
+      Vesa Vänskä
+      WODconnect
+
+      https://www.wodconnect.com
