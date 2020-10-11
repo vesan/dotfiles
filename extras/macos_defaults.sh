@@ -64,6 +64,9 @@ defaults write com.apple.swipescrolldirection -bool false
 echo "Move Dock to left side"
 defaults write com.apple.Dock orientation -string left
 
+echo "Allow key repeat instead of character accents popup"
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 echo "Changed defaults. Restarting apps…"
 
 echo "Restart Finder."
