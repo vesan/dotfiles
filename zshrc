@@ -391,7 +391,7 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 # breaks autocompletion
 # HEROKU_AC_ZSH_SETUP_PATH=/Users/vesan/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-export PATH=${PATH}:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH=${PATH}:"/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
