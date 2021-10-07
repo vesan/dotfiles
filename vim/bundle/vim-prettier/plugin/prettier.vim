@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 1.0.0-alpha
+"      Version: 1.0.0-beta
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -120,6 +120,11 @@ let g:prettier#config#jsx_bracket_same_line = get(g:,'prettier#config#jsx_bracke
 " See more: https://prettier.io/docs/en/options.html#arrow-function-parentheses
 let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'always')
 
+" Define the flavor of line endings
+" lf|crlf|cr|all
+" defaut: 'lf' 
+let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line', 'lf')
+
 " Print trailing commas wherever possible when multi-line.
 " none|es5|all
 " default: 'es5'
@@ -137,7 +142,7 @@ command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_a
 command! -nargs=? -range=% PrettierAsync call prettier#Prettier(1, <line1>, <line2>, g:prettier#partial_format)
 
 " prints vim-prettier version
-command! -nargs=? -range=% PrettierVersion echom '1.0.0-alpha'
+command! -nargs=? -range=% PrettierVersion echom '1.0.0-beta'
 
 " call prettier cli
 command! -nargs=? -range=% PrettierCli call prettier#PrettierCli(<q-args>)
@@ -169,5 +174,5 @@ nnoremap <silent> <Plug>(PrettierCliPath) :PrettierCliPath<CR>
 
 augroup Prettier
   autocmd!
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html noautocmd | call prettier#Autoformat()
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.gql,*.markdown,*.md,*.mdown,*.mkd,*.mkdn,*.mdx,*.vue,*.svelte,*.yml,*.yaml,*.html,*.php,*.rb,*.ruby,*.xml noautocmd call prettier#Autoformat()
 augroup end

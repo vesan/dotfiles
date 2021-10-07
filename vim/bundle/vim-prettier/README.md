@@ -1,4 +1,4 @@
-## vim-prettier [![Travis CI Build Status](https://travis-ci.org/prettier/vim-prettier.svg?branch=master)](https://travis-ci.org/prettier/vim-prettier) [![Discord](https://img.shields.io/discord/435481502113857536.svg)](https://discord.gg/9bWM9PH)
+## vim-prettier 
 
 A vim plugin wrapper for prettier, pre-configured with custom default prettier
 settings.
@@ -43,7 +43,7 @@ yarn|npm installed globally.
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 ```
 
 or simply enable for all formats by:
@@ -58,6 +58,12 @@ For those using [vim-pathogen](https://github.com/tpope/vim-pathogen), you can r
 ```
 cd ~/.vim/bundle
 git clone https://github.com/prettier/vim-prettier
+```
+
+If using [dein](https://github.com/Shougo/dein.vim), add the following to your dein config:
+
+```vim
+call dein#add('prettier/vim-prettier', {'build': 'npm install'})
 ```
 
 If using other vim plugin managers or doing manual setup make sure to have
@@ -112,7 +118,7 @@ If your are on vim 8+ you can also trigger async formatting by:
 
 You can send to prettier your entire buffer but ensure that it formats only your selection.
 
-**note: ** differs from `:PrettierFragment` by sending the entire buffer to prettier, allowing identation level to be preserved, but it requires the whole file to be valid.
+**note:** differs from `:PrettierFragment` by sending the entire buffer to prettier, allowing identation level to be preserved, but it requires the whole file to be valid.
 
 ```vim
 :PrettierPartial
@@ -120,7 +126,7 @@ You can send to prettier your entire buffer but ensure that it formats only your
 
 You can send to prettier your current selection as a fragment of same type as the file being edited.
 
-**note: ** differs from `:PrettierFragment` by sending only the current selection to prettier, this allows for faster formatting but wont preserve indentation.
+**note:** differs from `:PrettierPartial` by sending only the current selection to prettier, this allows for faster formatting but wont preserve indentation.
 
 ```vim
 :PrettierFragment
@@ -213,13 +219,13 @@ By default we auto focus on the quickfix when there are errors but can also be d
 let g:prettier#quickfix_auto_focus = 0
 ```
 
-To running vim-prettier not only before saving, but also after changing text or leaving insert mode:
+To run vim-prettier not only before saving, but also after changing text or leaving insert mode:
 
 ```vim
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
 
-autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 ```
 
 ### Overwrite default prettier configuration
@@ -262,6 +268,11 @@ let g:prettier#config#html_whitespace_sensitivity = 'css'
 " false|true
 " default: 'false'
 let g:prettier#config#require_pragma = 'false'
+
+" Define the flavor of line endings
+" lf|crlf|cr|all
+" defaut: 'lf'
+let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line', 'lf')
 ```
 
 ### REQUIREMENT(S)

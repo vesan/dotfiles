@@ -1,4 +1,4 @@
-# Asynchronous Lint Engine [![Travis CI Build Status](https://travis-ci.com/dense-analysis/ale.svg?branch=master)](https://travis-ci.com/dense-analysis/ale) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/r0ef1xu8xjmik58d/branch/master?svg=true)](https://ci.appveyor.com/project/dense-analysis/ale) [![Join the chat at https://gitter.im/vim-ale/Lobby](https://badges.gitter.im/vim-ale/Lobby.svg)](https://gitter.im/vim-ale/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Asynchronous Lint Engine [![GitHub Build Status](https://github.com/dense-analysis/ale/workflows/CI/badge.svg)](https://github.com/dense-analysis/ale/actions?query=event%3Apush+workflow%3ACI+branch%3Amaster++) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/r0ef1xu8xjmik58d/branch/master?svg=true)](https://ci.appveyor.com/project/dense-analysis/ale) [![Join the chat at https://gitter.im/vim-ale/Lobby](https://badges.gitter.im/vim-ale/Lobby.svg)](https://gitter.im/vim-ale/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ![ALE Logo by Mark Grealish - https://www.bhalash.com/](https://user-images.githubusercontent.com/3518142/59195920-2c339500-8b85-11e9-9c22-f6b7f69637b8.jpg)
@@ -53,6 +53,7 @@ other content at [w0rp.com](https://w0rp.com).
     5. [Find References](#usage-find-references)
     6. [Hovering](#usage-hover)
     7. [Symbol Search](#usage-symbol-search)
+    8. [Refactoring: Rename, Actions](#usage-refactoring)
 3. [Installation](#installation)
     1. [Installation with Vim package management](#standard-installation)
     2. [Installation with Pathogen](#installation-with-pathogen)
@@ -80,6 +81,8 @@ other content at [w0rp.com](https://w0rp.com).
     18. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
     19. [How can I configure the height of the list in which ALE displays errors?](#faq-list-window-height)
     20. [How can I run linters or fixers via Docker or a VM?](#faq-vm)
+    21. [How can I change the borders for floating preview windows?](#faq-window-borders)
+    22. [How can I use ALE and vim-lsp together?](#faq-vim-lsp)
 
 <a name="supported-languages"></a>
 
@@ -253,6 +256,18 @@ similar to a given query string.
 
 See `:help ale-symbol-search` for more information.
 
+<a name="usage-refactoring"></a>
+
+### 2.viii Refactoring: Rename, Actions
+
+ALE supports renaming symbols in symbols in code such as variables or class
+names with the `ALERename` command.
+
+`ALECodeAction` will execute actions on the cursor or applied to a visual
+range selection, such as automatically fixing errors.
+
+See `:help ale-refactor` for more information.
+
 <a name="installation"></a>
 
 ## 3. Installation
@@ -328,11 +343,13 @@ git clone https://github.com/dense-analysis/ale.git
 ### 3.iii. Installation with Vundle
 
 You can install this plugin using [Vundle](https://github.com/VundleVim/Vundle.vim)
-by using the path on GitHub for this repository.
+by adding the GitHub path for this repository to your `~/.vimrc`:
 
 ```vim
 Plugin 'dense-analysis/ale'
 ```
+
+Then run the command `:PluginInstall` in Vim.
 
 See the Vundle documentation for more information.
 
@@ -341,12 +358,15 @@ See the Vundle documentation for more information.
 ### 3.iiii. Installation with Vim-Plug
 
 You can install this plugin using [Vim-Plug](https://github.com/junegunn/vim-plug)
-by adding the GitHub path for this repository to your `~/.vimrc`
-and running `:PlugInstall`.
+by adding the GitHub path for this repository to your `~/.vimrc`:
 
 ```vim
 Plug 'dense-analysis/ale'
 ```
+
+Then run the command `:PlugInstall` in Vim.
+
+See the Vim-Plug documentation for more information.
 
 <a name="contributing"></a>
 
@@ -889,3 +909,51 @@ tools are well-integrated with ALE, and ALE is properly configured to run the
 correct commands and map filename paths between different file systems. See
 `:help ale-lint-other-machines` for the full documentation on how to configure
 ALE to support this.
+
+<a name="faq-window-borders"></a>
+
+### 5.xxi. How can I change the borders for floating preview windows?
+
+Borders for floating preview windows are enabled by default. You can use the
+`g:ale_floating_window_border` setting to configure them.
+
+You could disable the border with an empty list.
+
+```vim
+let g:ale_floating_window_border = []
+```
+
+If the terminal supports Unicode, you might try setting the value like below, to
+make it look nicer.
+
+```vim
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+```
+
+Since vim's default uses nice unicode characters when possible, you can trick
+ale into using that default with
+
+```vim
+let g:ale_floating_window_border = repeat([''], 6)
+```
+
+<a name="faq-vim-lsp"></a>
+
+### 5.xxii. How can I use ALE and vim-lsp together?
+
+[vim-lsp](https://github.com/prabirshrestha/vim-lsp) is a popular plugin as
+implementation of Language Server Protocol (LSP) client for Vim. It provides
+all the LSP features including auto completion, diagnostics, go to definitions,
+etc.
+
+ALE also provides LSP support for diagnostics. When you use both ALE and
+vim-lsp, one option is disabling ALE's LSP support by
+`let g:ale_disable_lsp = 1`. However ALE provides integration of external
+programs. Showing errors from language servers by vim-lsp and showing errors
+from other external programs by ALE are confusing and problematic.
+
+[vim-lsp-ale](https://github.com/rhysd/vim-lsp-ale) is a bridge plugin to solve
+the problem when using both ALE and vim-lsp. With the plugin, diagnostics are
+provided by vim-lsp and ALE can handle all the errors. Please read
+[vim-lsp-ale's documentation](https://github.com/rhysd/vim-lsp-ale/blob/master/doc/vim-lsp-ale.txt)
+for more details.

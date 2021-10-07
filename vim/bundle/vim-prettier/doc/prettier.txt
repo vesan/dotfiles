@@ -8,7 +8,7 @@ Author: Mitermayer Reis <mitermayer.reis@gmail.com>
 WebSite: https://prettier.io/
 Repository: https://github.com/prettier/vim-prettier
 License: MIT style license
-Version: 1.0.0-alpha
+Version: 1.0.0-beta
 
 ==============================================================================
 CONTENTS                                                *vim-prettier-contents*
@@ -47,7 +47,7 @@ node and yarn|npm installed globally.
   Plug 'prettier/vim-prettier', {
 	\ 'do': 'yarn install',
 	\ 'for': ['javascript', 'typescript', 'css',
-	\         'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml',
+	\         'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml',
 	'html'] }
 <
 or simply enable for all formats by:
@@ -94,7 +94,7 @@ You can check what is the resolved `prettier` cli version by:
 You can send to prettier your entire buffer but ensure that it
 formats only your selection.
 
-**note: ** differs from `:PrettierFragment` by sending the entire buffer
+**note:** differs from `:PrettierFragment` by sending the entire buffer
 to prettier, allowing identation level to be preserved, but it requires
 the whole file to be valid.
 >
@@ -103,7 +103,7 @@ the whole file to be valid.
 You can send to prettier your current selection as a fragment of same type as
 the file being edited.
 
-**note: ** differs from `:PrettierPartial` by sending only the current selection
+**note:** differs from `:PrettierPartial` by sending only the current selection
 to prettier, this allows for faster formatting but wont preserve indentation.
 >
   :PrettierFragment
@@ -146,17 +146,17 @@ First ensure that `g:prettier#autoformat` is not enabled on your `vimrc` (it sho
 
 Running before saving sync:
 >
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html Prettier
 <
 Running before saving async (vim 8+):
 >
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 <
 Running before saving, changing text or leaving insert mode: 
 >
   " when running at every change you may want to disable quickfix
   let g:prettier#quickfix_enabled = 0
-  autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+  autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 <
 Buffer-level custom commands
 
@@ -206,8 +206,13 @@ However they can be configured by:
 
   " false|true
   " default: 'false'
-  let g:prettier#config#require_pragma = 'false'
-<
+  " let g:prettier#config#require_pragma = 'false'
+
+  " Define the flavor of line endings
+  " lf|crlf|cr|all
+  " defaut: 'lf' 
+  let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line', 'lf')
+
 ==============================================================================
 REQUIREMENT(S)                                      *vim-prettier-requirements*
 
